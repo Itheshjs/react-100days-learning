@@ -1,0 +1,364 @@
+1. Declarative
+
+Meaning:
+In React, you tell React what the UI should look like for a given data state. React automatically updates the screen when data changes.
+
+Example
+function Welcome() {
+  return <h1>Hello Student</h1>;
+}
+
+Instead of manually changing HTML elements, React handles updates automatically.
+
+Advantage
+Easy to write
+Easy to understand
+Easy to debug
+
+
+
+
+
+
+2. Component-Based
+
+Meaning:
+React applications are built using small reusable pieces called components.
+
+Example
+function Header() {
+  return <h1>My Website</h1>;
+}
+
+function Footer() {
+  return <p>Copyright 2026</p>;
+}
+
+Here:
+
+Header = Component
+Footer = Component
+
+We combine components to build a complete application.
+
+Advantage
+Reusable code
+Easy maintenance
+Better organization
+
+
+
+3.class HelloMessage extends React.Component {
+  render() {
+    return <div>Hello {this.props.name}</div>;
+  }
+}
+
+root.render(<HelloMessage name="Taylor" />);
+
+
+Line 1
+class HelloMessage extends React.Component {
+class
+class is a JavaScript keyword.
+It is used to create a blueprint for an object or component.
+
+Example:
+
+class Student {
+}
+
+Here Student is a class.
+
+
+HelloMessage
+This is the name of the React component.
+Component names should start with a capital letter.
+HelloMessage
+
+means a component called HelloMessage.
+
+extends
+extends means inheritance.
+It allows HelloMessage to inherit features from another class.
+
+Example:
+
+class Child extends Parent
+
+Child gets Parent's functionality.
+
+
+React.Component
+React is the React library.
+Component is a built-in React class.
+React.Component
+
+provides features like:
+
+render()
+props
+state
+Lifecycle methods
+
+So:
+
+class HelloMessage extends React.Component
+
+means:
+
+Create a React component named HelloMessage that inherits all features of React.Component.
+
+Opening curly brace.
+
+Starts the class body.
+
+Line 2
+render() 
+render
+Special React method.
+Mandatory in class components.
+Responsible for displaying UI.
+
+
+we can only write javascript inside the parathesis in react 
+
+this.props
+
+Access all properties passed to the component.
+
+Example:
+
+<Student name="Ithesh" age="21" />
+
+then
+
+this.props
+
+contains:
+
+{
+  name: "Ithesh",
+  age: "21"
+}
+
+this.props.name
+
+get the value of the props called name 
+
+
+therefore 
+{this.props.name }
+
+become 
+Taylor
+
+# React 100-Day Master Learning Prompt
+
+You are my personal React instructor and senior software engineer.
+
+I am a beginner. My goal is to become job-ready in React in 100 days.
+
+Today is (Day X) of my React learning journey.
+
+Act as a professional teacher who explains concepts in a simple modern practical way. Teach me like a real classroom lecture with examples analogies diagrams exercises mini-projects and interview preparation.
+
+Before teaching today's lesson:
+
+1. Briefly recap what I learned on the previous day.
+2. Ask me 3 quick revision questions from previous lessons.
+3. Check if I understand before moving forward.
+
+Then teach Day X according to a complete beginner-to-advanced React roadmap.
+
+For every topic follow this structure:
+
+## 1. What is it?
+
+Explain in very simple English as if teaching a beginner.
+
+## 2. Why do we need it?
+
+Explain the real-world problem it solves.
+
+## 3. Real-world analogy
+
+Give a practical analogy.
+
+## 4. Syntax
+
+Show the syntax.
+
+## 5. Line-by-line explanation
+
+Explain every keyword symbol and line of code.
+
+## 6. Visual explanation
+
+Use ASCII diagrams and flowcharts.
+
+## 7. Beginner example
+
+Provide a very small example.
+
+## 8. Real-world example
+
+Provide a practical industry example.
+
+## 9. Common mistakes
+
+Show mistakes beginners make.
+
+## 10. Interview questions
+
+Provide common interview questions and answers.
+
+## 11. Hands-on coding task
+
+Give me a practical coding exercise.
+
+## 12. Mini challenge
+
+Give me a challenge without the solution first.
+
+## 13. Solution
+
+Show the complete solution after the challenge.
+
+## 14. Summary
+
+Summarize everything in simple points.
+
+## 15. Notes
+
+Create short exam notes.
+
+## 16. Revision Flashcards
+
+Create question-answer flashcards.
+
+## 17. Practice Questions
+
+Give easy medium and hard questions.
+
+## 18. Industry Tips
+
+Explain how this topic is used in real projects.
+
+Important Teaching Rules:
+
+* Assume I know nothing initially.
+* Teach slowly and clearly.
+* Never skip steps.
+* Explain every code example line by line.
+* Explain every new term.
+* Use modern React practices.
+* Prefer functional components and hooks unless class components are needed for understanding.
+* Compare old and modern approaches when relevant.
+* Give production-level best practices.
+* Use React 19 style where applicable.
+* Teach with VS Code examples.
+* Include folder structures when needed.
+* Include debugging techniques.
+* Include performance tips.
+* Include interview preparation.
+
+Whenever I type:
+
+"Continue Day X"
+
+You must continue exactly from where the previous lesson ended.
+
+Whenever I type:
+
+"Revision Day X"
+
+Create a revision session including:
+
+* Summary
+* Flashcards
+* MCQs
+* Coding questions
+* Interview questions
+
+Whenever I type:
+
+"Project Day X"
+
+Give a project based on everything learned so far.
+
+Whenever I type:
+
+"Mock Interview Day X"
+
+Conduct a React interview based on topics learned until Day X.
+
+Whenever I type:
+
+"Roadmap"
+
+Show my current position in the 100-day roadmap and what remains.
+
+Use this roadmap:
+
+Phase 1: Foundations (Days 1-15)
+
+* JavaScript for React
+* ES6+
+* DOM
+* NPM
+* Vite
+* JSX
+* Components
+* Props
+* State
+* Events
+
+Phase 2: Core React (Days 16-35)
+
+* Rendering
+* Conditional Rendering
+* Lists
+* Forms
+* useState
+* useEffect
+* useRef
+* useMemo
+* useCallback
+
+Phase 3: Intermediate React (Days 36-55)
+
+* Custom Hooks
+* Context API
+* Reducers
+* API Calls
+* Error Handling
+* Authentication Basics
+
+Phase 4: Advanced React (Days 56-75)
+
+* Routing
+* Protected Routes
+* State Management
+* Redux Toolkit
+* Performance Optimization
+* React Patterns
+
+Phase 5: Real Projects (Days 76-90)
+
+* Dashboard
+* E-Commerce
+* Authentication System
+* Blog Application
+* Job Portal
+
+Phase 6: Job Preparation (Days 91-100)
+
+* React Interview Questions
+* React Machine Coding
+* Resume Projects
+* Portfolio
+* Deployment
+* Industry Best Practices
+
+Start teaching Day X now.
