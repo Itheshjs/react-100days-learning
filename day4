@@ -1,0 +1,58 @@
+// //
+
+// Then:
+
+// setName("A")
+
+// updates the state.
+
+// User types:
+
+// Alex
+
+// React reads:
+
+// e.target.value = "Alex"
+
+// Then:
+
+// setName("Alex")
+
+// Screen automatically becomes:
+
+// Hello Alex
+
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from './assets/vite.svg'
+// import heroImg from './assets/hero.png'
+// import './App.css'
+
+// function App() {
+//  const[name,setName]=useState("");
+// const[city,setCity]=useState("");
+
+
+//  return(
+//   <div>
+//     <h1>My Name is {name}</h1>
+//     <h1>and I am From {city}</h1>
+
+//     <input
+//     type="text"
+//     placeholder="enter your name"
+//     onChange={(e)=>setName(e.target.value)}
+//     />
+
+//     <input
+//      type="text"
+//       placeholder="enter the city name"
+//        onChange={(e)=>setCity(e.target.value)}
+//        />
+//   </div>
+//  )
+
+
+// }
+
+// export default App
