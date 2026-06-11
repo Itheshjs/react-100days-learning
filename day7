@@ -1,0 +1,598 @@
+props(properties)
+*props are data passed from parent component to child component 
+
+Without props:
+
+function User() {
+  return <h1>Ithesh</h1>;
+}
+
+Always shows:
+
+Ithesh
+
+
+with properties we can display same component different data 
+
+With props:
+
+<User name="Ithesh" />
+<User name="Rahul" />
+<User name="Priya" />
+
+Now same component displays different data.
+
+
+react properties we can easly rember like taking example of instagram  in insatgram for all user profile layout is same(same,logo,same color everything ) but only data changes 
+
+. Why Do We Need Props?
+
+Imagine Instagram.
+
+Every profile page uses the same layout:
+
+Profile Photo
+Name
+Bio
+Followers
+
+But data changes.
+
+React solves this using props.
+
+Instead of creating:
+
+User1.jsx
+User2.jsx
+User3.jsx
+
+We create:
+
+User.jsx
+
+And pass data through props.
+
+3. Real-World Analogy
+
+Think of a Swiggy delivery box.
+
+The box design is same.
+
++------------+
+| FOOD BOX   |
++------------+
+
+But contents change:
+
+Box 1 → Pizza
+Box 2 → Burger
+Box 3 → Biryani
+
+Component = Box
+
+Props = Food inside box
+
+
+Visual Flow
+Parent Component
+       |
+       |
+       v
+<User name="Ithesh" />
+       |
+       |
+       v
+Child Component
+       |
+       v
+props.name
+       |
+       v
+Ithesh
+5. Line-by-Line Explanation
+
+Example:
+
+function User(props) {
+  return <h1>{props.name}</h1>;
+}
+function
+
+Creates a React component.
+
+User
+
+Component name.
+
+Must start with capital letter.
+
+props
+
+An object containing passed data.
+
+Example:
+
+<User name="Ithesh" age="22" />
+
+Props becomes:
+
+{
+  name: "Ithesh",
+  age: "22"
+}
+props.name
+
+Accesses name value.
+
+props.name
+
+returns:
+
+"Ithesh"
+
+<h1>{props.name}</h1>
+6. Visual Explanation
+Parent
+
+<User
+ name="Ithesh"
+ age={22}
+/>
+
+          ↓
+
+props
+
+{
+ name:"Ithesh",
+ age:22
+}
+
+          ↓
+
+Child Component
+
+props.name → Ithesh
+
+props.age → 22
+
+
+8. Real-World Example
+
+Employee Card
+
+App.jsx
+<Employee
+ name="Ithesh"
+ role="Frontend Developer"
+ company="ABC Tech"
+/>
+Employee.jsx
+function Employee(props) {
+  return (
+    <div>
+      <h2>{props.name}</h2>
+      <p>{props.role}</p>
+      <p>{props.company}</p>
+    </div>
+  );
+}
+
+export default Employee;
+
+Output:
+
+Ithesh
+Frontend Developer
+ABC Tech
+
+Multiple Props Example
+<Student
+ name="Ithesh"
+ age={22}
+ city="Bangalore"
+/>
+
+Props Object:
+
+{
+ name:"Ithesh",
+ age:22,
+ city:"Bangalore"
+}
+
+Passing Numbers
+
+Wrong:
+
+age="22"
+
+This becomes string.
+
+Correct:
+
+age={22}
+
+Number.
+
+
+Passing Boolean
+<Student isLoggedIn={true} />
+
+Props:
+
+{
+ isLoggedIn:true
+}
+
+
+in react we pass the numbe rlike is 
+
+x={22} like this 
+
+total={33}
+
+
+passing Boolean
+
+<student isLoggedIN="True"/>
+
+Props
+
+{
+    isLoggedIN:True;
+}
+
+
+passing an array 
+
+<student
+skills="{[Html,css,js]}" />
+
+
+passing object
+
+<user info="{{name:Ithesh,city:bengaluru}}"
+
+
+
+Acceasing the object 
+
+function user(props){
+    return(
+        <>
+        <h1>{props.info.name}</h1>
+        <p>{props.info.city}</p>
+        </>
+    )
+}
+
+Modern Method: Destructuring Props
+
+Instead of:
+
+function User(props){
+  return <h1>{props.name}</h1>;
+}
+
+Use:
+
+function User({ name }) {
+  return <h1>{name}</h1>;
+}
+
+
+Why?
+
+Cleaner code.
+
+Industry standard.
+
+Example
+function User({ name, age }) {
+  return (
+    <>
+      <h1>{name}</h1>
+      <p>{age}</p>
+    </>
+  );
+}
+
+
+9. Common Mistakes
+Mistake 1
+function user() {}
+
+Wrong.
+
+Component names must start with capital letter.
+
+function User() {}
+
+Correct.
+
+
+Mistake 2
+<h1>props.name</h1>
+
+Wrong.
+
+Output:
+
+props.name
+
+Correct:
+
+<h1>{props.name}</h1>
+
+Mistake 3
+<User name=Ithesh />
+
+Wrong.
+
+Correct:
+
+<User name="Ithesh" />
+
+
+Mistake 4
+function User(name){
+}
+
+Wrong.
+
+React sends props object.
+
+Correct:
+
+function User(props){
+}
+
+or
+
+function User({name}){
+}
+
+
+what is props(property)
+
+props is data transformed from parent component to child component
+
+
+Q2. Are Props Mutable?
+
+No.
+
+Props are read-only.
+
+Never modify props directly.
+
+
+11. Hands-On Coding Task
+
+Create a Product Card.
+
+Requirements:
+
+Product Name
+Price
+Category
+
+Use Props.
+
+Example:
+
+<Product
+ name="Laptop"
+ price={50000}
+ category="Electronics"
+/>
+12. Mini Challenge
+
+Build a Student Card.
+
+Output:
+
+Name: Ithesh
+Age: 22
+Course: React
+
+Rules:
+
+Create Student component.
+Pass data using props.
+Use destructuring.
+
+Try yourself first.
+
+13. Solution
+App.jsx
+import Student from "./Student";
+
+function App() {
+  return (
+    <>
+      <Student
+        name="Ithesh"
+        age={22}
+        course="React"
+      />
+    </>
+  );
+}
+
+export default App;
+Student.jsx
+function Student({
+  name,
+  age,
+  course
+}) {
+  return (
+    <div>
+      <h2>Name: {name}</h2>
+      <h2>Age: {age}</h2>
+      <h2>Course: {course}</h2>
+    </div>
+  );
+}
+
+export default Student;
+Debugging Tips
+Check Props
+console.log(props);
+
+or
+
+console.log(name);
+
+Use browser console.
+
+React DevTools
+
+Install React DevTools extension.
+
+You can inspect:
+
+Components
+Props
+State
+
+Very useful in interviews and jobs.
+
+Performance Tip
+
+Good:
+
+<User name="Ithesh" />
+
+Avoid sending huge objects unnecessarily.
+
+<User userData={bigObject} />
+
+Pass only required data.
+
+Industry Usage
+
+Props are used everywhere:
+
+✅ User cards
+✅ Product cards
+✅ Dashboards
+✅ Blogs
+✅ E-commerce websites
+✅ Hospital websites
+✅ Admin panels
+
+Almost every React application depends heavily on props.
+
+14. Summary
+
+✅ Props pass data from parent to child
+
+✅ Props are read-only
+
+✅ Props can hold:
+
+String
+Number
+Boolean
+Array
+Object
+
+✅ Use destructuring for cleaner code
+
+function User({name}) {}
+
+✅ Props make components reusable
+
+15. Exam Notes
+Props = Properties
+
+Purpose:
+Parent → Child communication
+
+Props are:
+Read-only
+Reusable
+Dynamic
+
+Modern Syntax:
+function User({name}) {}
+16. Revision Flashcards
+Flashcard 1
+
+Q: What are props?
+
+A: Data passed from parent to child component.
+
+Flashcard 2
+
+Q: Can props be changed?
+
+A: No.
+
+Flashcard 3
+
+Q: Modern way to access props?
+
+A: Destructuring.
+
+function User({name}){}
+Flashcard 4
+
+Q: Parent to child communication uses?
+
+A: Props.
+
+17. Practice Questions
+Easy
+What are props?
+Why are props used?
+Can props store numbers?
+Medium
+Pass an object through props.
+Pass an array through props.
+Use destructuring.
+Hard
+
+Create:
+
+Employee Card
+
+with:
+
+Name
+Department
+Salary
+Experience
+
+using props.
+
+18. Industry Tips
+
+When working in companies:
+
+API Data
+     ↓
+Parent Component
+     ↓
+Props
+     ↓
+Child Components
+
+This pattern is used daily in React projects.
+
+🎯 Homework
+
+Create a Hospital Doctor Card component:
+
+Props:
+
+<Doctor
+  name="Dr. Smith"
+  specialty="Cardiologist"
+  experience={10}
+/>
+
+Display all details in a styled card.
