@@ -1,0 +1,106 @@
+// function Employee({name,role,salary}){
+//     return(
+//         <>
+//         <h2>Name:{name}</h2>
+//         <h3>Roll:{role}</h3>
+//         <p>Salary:{salary}</p>
+//         </>
+//     );
+// }
+
+// export default Employee;
+
+
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from './assets/vite.svg'
+// import heroImg from './assets/hero.png'
+// import './App.css'
+// import Employee from "./Employee"
+
+// function App() {
+//  return(
+//   <>
+//   <Employee name="Ithesh" 
+//   role="Developer"
+//   salary="40000"
+//   />
+
+//   </>
+//  )
+
+
+// }
+
+// export default App
+
+
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from './assets/vite.svg'
+// import heroImg from './assets/hero.png'
+// import './App.css'
+// import Employee from "./Employee"
+// import Student from "./Student"
+
+// function App() {
+// //  return(
+// //   <div className="container">
+// //   <Employee name="Ithesh" 
+// //   role="Developer"
+// //   salary="40000"
+// //   />
+
+// //    <Student Usn="123" 
+// //   Name="rahul"
+// //   Branch="cs"
+// //   Score="88" />
+// //   <div/>
+// //  );
+//  return (
+//     <div className="container">
+//       <Employee
+//         name="Ithesh"
+//         role="Developer"
+//         salary="40000"
+//       />
+
+//       <Student
+//         Usn="123"
+//         Name="Rahul"
+//         Branch="CS"
+//         Score="88"
+//       />
+//     </div>
+//   );
+
+// }
+
+// export default App
+
+
+// function Employee({name,role,salary}){
+//     return(
+//         <div className="employee-card">
+//         <h2>Name:{name}</h2>
+//         <h3>Roll:{role}</h3>
+//         <p>Salary:{salary}</p>
+//         </div>
+//     );
+// }
+
+// export default Employee;
+
+
+// function Student({Usn,Name,Branch,Score}){
+//     return(
+//         <div className="student-card">
+//         <h2>Usn:{Usn}</h2>
+//         <p>Name:{Name}</p>
+//         <h2>Branch:{Branch}</h2>
+//         <h2>Score:{Score}</h2>
+//         </div>
+//     );
+// }
+
+// export default Student
