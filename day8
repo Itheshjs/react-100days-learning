@@ -1,0 +1,593 @@
+when button is clicked then run the handleClick
+
+function handleClick() {
+  alert("Button clicked");
+}
+
+<button onClick={handleClick}>
+  Click Me
+</button>
+
+
+"Run handleClick() immediately while rendering the page."
+
+Example:
+
+function handleClick() {
+  alert("Button clicked");
+}
+
+<button onClick={handleClick()}>
+  Click Me
+</button>
+
+
+Result:
+
+Alert appears immediately when page loads.
+Not when button is clicked.
+
+
+Easy Memory Trick
+Without ()
+onClick={handleClick}
+
+👉 Give React the function.
+
+With ()
+onClick={handleClick()}
+
+👉 Run the function immediately.
+
+Think of it like:
+
+handleClick
+
+= Address of the function 📍
+
+handleClick()
+
+= Call the function ☎️
+
+2. Which Event Is Commonly Used For Form Submission?
+
+Answer:
+
+onSubmit
+
+Example:
+
+<form onSubmit={handleSubmit}>
+  <button type="submit">
+    Submit
+  </button>
+</form>
+
+When the user submits the form:
+
+function handleSubmit() {
+  console.log("Form Submitted");
+}
+
+runs.
+
+3. Which Event Is Commonly Used For Input Fields?
+
+Answer:
+
+onChange
+
+Example:
+
+<input onChange={handleChange} />
+
+Whenever the user types:
+
+function handleChange(event) {
+  console.log(event.target.value);
+}
+
+React gets the new value.
+
+
+3. Which Event Is Commonly Used For Input Fields?
+
+Answer:
+
+onChange
+
+Example:
+
+<input onChange={handleChange} />
+
+Whenever the user types:
+
+function handleChange(event) {
+  console.log(event.target.value);
+}
+
+React gets the new value.
+
+Real-Life Example
+
+Imagine a registration form:
+
+function App() {
+  function handleChange(e) {
+    console.log(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("Form Submitted");
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        onChange={handleChange}
+      />
+
+      <button type="submit">
+        Submit
+      </button>
+    </form>
+  );
+}
+What Happens?
+
+User types:
+
+John
+
+onChange runs every time a letter is typed.
+
+Then user clicks Submit:
+
+onSubmit runs.
+
+Quick Revision Table
+Event	Used For
+onClick	Button clicks
+onChange	Input field changes
+onSubmit	Form submission
+
+
+Q1
+
+Difference between:
+
+onClick={handleClick}
+
+and
+
+onClick={handleClick()}
+
+
+-onclick={handleclick}
+runs when clicked 
+
+
+-onclick={handleclick}
+runs immediatly when page is renders
+
+
+which event is used for form submission?
+onSubmit
+
+
+which event is commonly used for input field?
+-onChange
+
+
+
+1.)what is State
+state is data belong to the component that can change ver time 
+
+whenever state change 
+react automatically update the UI
+
+
+Example:
+
+Counter App
+
+Count: 0
+
+Click Button
+
+Count: 1
+
+Click Again
+
+Count: 2
+
+The value changes.
+
+That changing value is State.
+
+2. Why Do We Need State?
+
+Imagine a Like button.
+
+Without state:
+
+Likes = 0
+
+Button click won't update UI.
+
+React needs a way to remember changing values.
+
+State solves this problem.
+
+Real Problem
+
+Suppose:
+
+Cart Items = 0
+
+User adds product.
+
+Cart Items = 1
+
+User adds another.
+
+Cart Items = 2
+
+React stores this changing data in state.
+
+3. Real-World Analogy
+
+Think of a Whiteboard.
+
+Props = Information written by teacher
+
+State = Information students can modify
+
+Example:
+
+Class Attendance
+
+Present = 20
+
+Student enters classroom
+
+Present = 21
+
+Attendance changes.
+
+That changing value = State.
+
+4. Syntax
+import { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>{count}</h1>
+    </div>
+  );
+}
+
+5. Line-by-Line Explanation
+Import Hook
+import { useState } from "react";
+
+Meaning:
+
+Bring useState functionality from React.
+Create State
+const [count, setCount] = useState(0);
+
+Breakdown:
+
+count
+
+Current value
+
+count
+setCount
+
+Function to update value
+
+setCount()
+useState(0)
+
+Initial value
+
+useState(0)
+
+Means:
+
+Start count from 0.
+
+Visual:
+
+useState(0)
+
+↓
+
+count = 0
+
+↓
+
+setCount(1)
+
+↓
+
+count = 1
+
+↓
+
+React Re-renders5. Line-by-Line Explanation
+Import Hook
+import { useState } from "react";
+
+Meaning:
+
+Bring useState functionality from React.
+Create State
+const [count, setCount] = useState(0);
+
+Breakdown:
+
+count
+
+Current value
+
+count
+setCount
+
+Function to update value
+
+setCount()
+useState(0)
+
+Initial value
+
+useState(0)
+
+Means:
+
+Start count from 0.
+
+Visual:
+
+useState(0)
+
+↓
+
+count = 0
+
+↓
+
+setCount(1)
+
+↓
+
+count = 1
+
+↓
+
+React Re-renders
+
+
+6. Visual Explanation
+User Clicks Button
+         |
+         v
+   setCount()
+         |
+         v
+   State Changes
+         |
+         v
+ React Re-renders
+         |
+         v
+ Updated Screen
+Component Memory Diagram
+Component
+
++----------------+
+| count = 0      |
++----------------+
+
+Click
+
++----------------+
+| count = 1      |
++----------------+
+
+Click
+
++----------------+
+| count = 2      |
++----------------+
+
+
+import { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <h1>{count}</h1>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+    </>
+  );
+}
+
+export default App;
+
+
+Line-by-Line
+const [count, setCount] = useState(0);
+
+Create state.
+
+<h1>{count}</h1>
+
+Display count.
+
+setCount(count + 1)
+
+Increase value by 1.
+
+8. Real-World Example
+
+Shopping Cart Badge
+
+import { useState } from "react";
+
+function Cart() {
+  const [items, setItems] = useState(0);
+
+  return (
+    <>
+      <h2>Cart: {items}</h2>
+
+      <button
+        onClick={() => setItems(items + 1)}
+      >
+        Add Product
+      </button>
+    </>
+  );
+}
+
+Industry Usage:
+
+Amazon
+Flipkart
+Myntra
+Swiggy
+Zomato
+
+All use state heavily.
+
+Multiple States
+
+You can have many states.
+
+const [name, setName] = useState("");
+const [age, setAge] = useState(0);
+const [city, setCity] = useState("");
+
+
+Component
+
+name = John
+age = 25
+city = Bangalore
+
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+
+  return (
+    <>
+      <input
+        type="text"
+        onChange={(e) =>
+          setName(e.target.value)
+        }
+      />
+
+      <h2>{name}</h2>
+    </>
+  );
+}
+
+User Types
+
+↓
+
+onChange
+
+↓
+
+setName()
+
+↓
+
+State Updated
+
+↓
+
+UI Updated
+
+
+9. Common Mistakes
+Mistake 1
+
+Direct Modification
+
+❌ Wrong
+
+count = count + 1;
+
+✅ Correct
+
+setCount(count + 1);
+
+
+Mistake 2
+
+Forgetting Import
+
+❌
+
+const [count, setCount] = useState(0);
+
+Without import.
+
+✅
+
+import { useState } from "react";
+
+
+Mistake 3
+
+Using State Like Normal Variable
+
+❌
+
+count++;
+
+✅
+
+setCount(count + 1);
+
+Q3
+
+Does changing state re-render a component?
+
+Answer
+
+Yes.
+
+React automatically re-renders when state changes.
+
+
+Q4
+
+Can a component have multiple states?
+
+Answer
+
+Yes.
+
+const [name, setName] = useState("");
+const [age, setAge] = useState(0);
+
+
+
