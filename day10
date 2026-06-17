@@ -1,0 +1,670 @@
+what is event :
+ event allow the react application to respond user input 
+
+ Examples:
+
+Clicking a button
+Typing in an input
+Hovering over an element
+Submitting a form
+Pressing a key
+
+Without events:
+
+User sees page
+Nothing happens
+
+With events:
+
+User clicks
+React responds
+UI changes
+
+
+2. Why Do We Need It?
+
+Imagine:
+
+E-commerce Website
+
+User clicks:
+
+Add to Cart
+
+Something must happen.
+
+Login Form
+
+User types email.
+
+Something must happen.
+
+Dashboard
+
+User clicks refresh.
+
+Something must happen.
+
+Events make websites interactive.
+
+
+3. Real-World Analogy
+
+Think of a doorbell.
+
+Visitor presses button
+       ↓
+Bell rings
+
+Event Flow:
+
+User Action
+      ↓
+Event Triggered
+      ↓
+React Function Runs
+      ↓
+UI Updates
+
+React events work exactly like this.
+
+4. Syntax
+
+Basic syntax:
+
+<button onClick={handleClick}>
+  Click Me
+</button>
+
+Function:
+
+function handleClick() {
+  alert("Button Clicked");
+}
+
+
+5. Line-by-Line Explanation
+
+Code:
+
+function App() {
+
+  function handleClick() {
+    alert("Button Clicked");
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Click Me
+    </button>
+  );
+}
+
+Explanation:
+
+function App()
+
+Creates component.
+
+function handleClick()
+
+Function that runs when event occurs.
+
+
+4. Syntax
+
+Basic syntax:
+
+<button onClick={handleClick}>
+  Click Me
+</button>
+
+Function:
+
+function handleClick() {
+  alert("Button Clicked");
+}
+5. Line-by-Line Explanation
+
+Code:
+
+function App() {
+
+  function handleClick() {
+    alert("Button Clicked");
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Click Me
+    </button>
+  );
+}
+
+Explanation:
+
+function App()
+
+Creates component.
+
+function handleClick()
+
+Function that runs when event occurs.
+
+onClick
+
+React event listener.
+
+onClick={handleClick}
+
+Means:
+
+When clicked
+Run handleClick
+alert()
+
+Shows popup.
+
+alert("Button Clicked");
+Important
+
+❌ Wrong
+
+onClick={handleClick()}
+
+This runs immediately.
+
+✅ Correct
+
+onClick={handleClick}
+
+Runs only when clicked.
+
+6. Visual Explanation
+User Clicks Button
+        │
+        ▼
+   onClick Event
+        │
+        ▼
+  handleClick()
+        │
+        ▼
+ React Updates UI
+
+Another example:
+
+Input Typing
+      │
+      ▼
+ onChange
+      │
+      ▼
+ State Updated
+      │
+      ▼
+ UI Re-rendered
+
+ 7. Beginner Example
+function App() {
+
+  function sayHello() {
+    alert("Hello!");
+  }
+
+  return (
+    <button onClick={sayHello}>
+      Say Hello
+    </button>
+  );
+}
+Line-by-Line
+function sayHello()
+
+Creates function.
+
+alert("Hello!");
+
+Popup message.
+
+onClick={sayHello}
+
+Runs function on click.
+
+8. Real-World Example
+Like Button
+import { useState } from "react";
+
+function App() {
+
+  const [likes, setLikes] = useState(0);
+
+  function handleLike() {
+    setLikes(likes + 1);
+  }
+
+  return (
+    <>
+      <h2>Likes: {likes}</h2>
+
+      <button onClick={handleLike}>
+        Like
+      </button>
+    </>
+  );
+}
+
+export default App;
+Flow
+Likes = 0
+
+Click Button
+      ↓
+handleLike()
+      ↓
+setLikes(1)
+      ↓
+React Re-renders
+      ↓
+Likes = 1
+Common React Events
+Event	Purpose
+onClick	Button click
+onChange	Input change
+onSubmit	Form submit
+onMouseEnter	Mouse enters
+onMouseLeave	Mouse leaves
+onKeyDown	Key press
+onFocus	Input focused
+onBlur	Input loses focus
+
+
+
+Example: Input Event
+import { useState } from "react";
+
+function App() {
+
+  const [name, setName] = useState("");
+
+  function handleChange(event) {
+    setName(event.target.value);
+  }
+
+  return (
+    <>
+      <input
+        type="text"
+        onChange={handleChange}
+      />
+
+      <h2>{name}</h2>
+    </>
+  );
+}
+
+
+Understanding Event Object
+
+React automatically sends an Event Object.
+
+function handleChange(event) {
+  console.log(event);
+}
+
+The event contains:
+
+event.target
+event.target.value
+event.type
+event.name
+
+Example:
+
+function handleChange(event) {
+  console.log(event.target.value);
+}
+
+If user types:
+
+React
+
+Console:
+
+R
+Re
+Rea
+Reac
+React
+
+
+Common Mistakes
+Mistake 1
+onClick={handleClick()} 
+
+when we use this () : it run immediatly 
+
+
+normal onnclick={handleclick}
+
+this  is the correct way
+
+Using lowercase.
+
+Wrong:
+
+onclick={handleClick} : correctis onClick C should be capital that need to look and cheak every time 
+
+
+Mistake 3
+
+Forgetting event parameter.
+
+Wrong:
+
+function handleChange() {
+  console.log(event.target.value);
+}
+
+Correct:
+
+function handleChange(event) {
+  console.log(event.target.value);
+}
+
+
+10. Interview Questions
+Q1
+
+What is an event in React?
+
+Answer:
+
+An event is a user interaction such as clicking, typing, or submitting a form.
+
+Q2
+
+How is React event handling different from HTML?
+
+HTML:
+
+<button onclick="myFunction()">
+
+React:
+
+<button onClick={myFunction}>
+
+CamelCase is used.
+
+Q3
+
+What is Synthetic Event?
+
+Answer:
+
+React wraps browser events into a consistent cross-browser event system called Synthetic Event.
+
+Q4
+
+How do you pass parameters?
+
+<button onClick={() => deleteUser(5)}>
+11. Hands-On Coding Task
+
+Build:
+
+Counter App
+
+Requirements:
+
+Count starts at 0
+Increase button
+Decrease button
+
+Expected UI:
+
+Count: 0
+
+[ + ]
+[ - ]
+12. Mini Challenge
+
+Create:
+
+Color Changer
+
+Requirements:
+
+Button:
+
+Change Background
+
+When clicked:
+
+Background becomes yellow
+
+Do it yourself first.
+
+13. Solution
+import { useState } from "react";
+
+function App() {
+
+  const [color, setColor] = useState("white");
+
+  function changeColor() {
+    setColor("yellow");
+  }
+
+  return (
+    <div
+      style={{
+        backgroundColor: color,
+        height: "100vh"
+      }}
+    >
+      <button onClick={changeColor}>
+        Change Background
+      </button>
+    </div>
+  );
+}
+
+export default App;
+Debugging Techniques
+Check Event Fires
+function handleClick() {
+  console.log("Clicked");
+}
+Check Input Value
+console.log(event.target.value);
+React Developer Tools
+
+Install:
+
+React Developer Tools
+
+Chrome Extension.
+
+Useful for:
+
+State inspection
+Props inspection
+Component tree debugging
+Performance Tips
+Avoid Inline Functions Excessively
+
+Less preferred:
+
+<button onClick={() => handleClick()}>
+
+Preferred:
+
+<button onClick={handleClick}>
+
+Use inline functions only when passing parameters.
+
+Keep Event Logic Small
+
+Bad:
+
+function handleClick() {
+  // 200 lines
+}
+
+Better:
+
+function handleClick() {
+  updateUser();
+}
+14. Summary
+
+Today you learned:
+
+✅ React Events
+
+✅ onClick
+
+✅ onChange
+
+✅ Event Object
+
+✅ Event Flow
+
+✅ Input Handling
+
+✅ Common Event Types
+
+✅ Event Debugging
+
+✅ Interview Questions
+
+15. Exam Notes
+React Events
+
+onClick → click
+onChange → input changes
+onSubmit → form submission
+
+React uses CamelCase.
+
+HTML:
+onclick
+
+React:
+onClick
+
+Event Object:
+event.target.value
+
+Do not write:
+onClick={handleClick()}
+
+Write:
+onClick={handleClick}
+16. Revision Flashcards
+Flashcard 1
+
+Q: Which event handles button clicks?
+
+A:
+
+onClick
+Flashcard 2
+
+Q: Which event handles typing?
+
+A:
+
+onChange
+Flashcard 3
+
+Q: How do you get input value?
+
+A:
+
+event.target.value
+Flashcard 4
+
+Q: Why does React use Synthetic Events?
+
+A:
+
+To provide consistent behavior across browsers.
+
+17. Practice Questions
+Easy
+What is onClick?
+What is onChange?
+What is event.target?
+Medium
+Build a Like Button.
+Build a Counter.
+Show typed text below input.
+Hard
+
+Build:
+
+Live Character Counter
+
+Requirements:
+
+User types text
+Show count instantly
+
+Example:
+
+Hello
+
+Characters: 5
+18. Industry Tips
+
+In real projects, events are everywhere:
+
+E-Commerce
+Add To Cart
+Remove Item
+Checkout
+Social Media
+Like
+Comment
+Share
+Follow
+Admin Dashboard
+Search
+Filter
+Export
+Refresh
+
+Almost every user interaction in React is powered by events.
+
+Roadmap Progress
+Phase 1: Foundations
+
+✅ Day 1  Introduction
+✅ Day 2  JavaScript Essentials
+✅ Day 3  ES6+
+✅ Day 4  DOM Basics
+✅ Day 5  NPM & Vite
+✅ Day 6  JSX
+✅ Day 7  Components
+✅ Day 8  Props
+✅ Day 9  State
+✅ Day 10 Events
+
+⬜ Day 11 Component Communication
+⬜ Day 12 Forms Basics
+⬜ Day 13 Controlled Components
+⬜ Day 14 Project
+⬜ Day 15 Phase 1 Revision
+Today's Assignment
+
+Build these 3 mini apps:
+
+Counter App (+ and - buttons)
+Like Button App ❤️
+Live Name Preview App (input → display text)
+
+Complete them without looking at the solutions. They will prepare you for Day 11: Component Communication (Parent ↔ Child Components).
+
+Writing code? Meet Codex.
