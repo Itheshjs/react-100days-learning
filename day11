@@ -1,0 +1,610 @@
+🚀 React 100-Day Journey – Day 11
+Topic: React Forms & Controlled Components
+
+Welcome to Day 11! 🎉
+
+So far, you've learned how users interact with React applications through events. Today you'll learn how React handles user input using forms.
+
+Before we start today's lesson, let's revise Day 10.
+
+🔄 Day 10 Recap (Events)
+
+Yesterday you learned:
+
+✅ What Events are in React
+
+✅ Event Handling
+
+✅ onClick
+
+✅ onChange
+
+✅ onSubmit
+
+✅ Event Object
+
+✅ Passing Arguments to Events
+
+✅ Preventing Default Behavior
+
+Example:
+
+function App() {
+  const handleClick = () => {
+    alert("Button Clicked");
+  };
+
+  return (
+    <button onClick={handleClick}>
+      Click Me
+    </button>
+  );
+}
+🧠 Quick Revision Questions
+Q1
+
+Which event runs when a button is clicked?
+
+A. onHover
+
+B. onSubmit
+
+C. onClick
+
+D. onLoad
+
+Q2
+
+Which function prevents page refresh?
+
+e.?
+Q3
+
+What event is commonly used for input fields?
+
+A. onClick
+
+B. onChange
+
+C. onLoad
+
+D. onFocus
+
+👉 Answer these yourself before moving forward.
+
+Now let's start Day 11.
+
+
+📚 Day 11 Topic:
+React Forms & Controlled Components
+1. What is it?
+
+A Form is a collection of inputs that allow users to enter data.
+
+Examples:
+
+Login Form
+Registration Form
+Contact Form
+Search Bar
+Feedback Form
+
+React manages form data using state.
+
+2. Why do we need it?
+
+Imagine a login page.
+
+User enters:
+
+Email
+Password
+
+React must know:
+
+What user typed
+When input changes
+When form submits
+
+Without state React cannot track user input.
+
+Real Problem
+
+Normal HTML:
+
+<input type="text">
+
+Browser stores the value.
+
+React prefers:
+
+State stores the value
+
+This gives React full control.
+
+4. Syntax
+Controlled Input
+const [name, setName] = useState("");
+
+<input
+  type="text"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+/>
+
+5. Line-by-Line Explanation
+const [name, setName] = useState("");
+useState("")
+
+Creates state.
+
+name
+
+Current value.
+
+setName
+
+Updates value.
+
+""
+
+Initial value is empty.
+
+value={name}
+
+Input value comes from state.
+
+React controls the field.
+
+onChange={(e) => setName(e.target.value)}
+
+Whenever user types:
+
+Input Changes
+↓
+onChange Fires
+↓
+e.target.value
+↓
+setName()
+↓
+State Updates
+↓
+UI Re-renders
+
+
+6. Visual Explanation
+User Types
+     ↓
+Input Field
+     ↓
+onChange Event
+     ↓
+setName()
+     ↓
+React State
+     ↓
+Component Re-render
+     ↓
+Updated UI
+
+
+Controlled Component Diagram
+      React State
+           ↑
+           |
+           |
+Input ← value prop
+           |
+           |
+      onChange
+           |
+           ↓
+       setState
+
+React is controlling everything.
+
+
+import { useState } from "react";
+
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(email);
+    console.log(password);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <button type="submit">
+        Login
+      </button>
+    </form>
+  );
+}
+
+export default Login;
+
+Line-by-Line Flow
+User Types Email
+↓
+setEmail()
+↓
+Email State Updates
+
+User Types Password
+↓
+setPassword()
+↓
+Password State Updates
+
+Submit
+↓
+handleSubmit()
+↓
+e.preventDefault()
+↓
+Send Data
+
+Controlled vs Uncontrolled Components
+Controlled
+<input
+  value={name}
+  onChange={handleChange}
+/>
+
+React controls value.
+
+✅ Recommende
+
+
+d9. Common Mistakes
+Mistake 1
+
+Forgetting value
+
+<input
+  onChange={handleChange}
+/>
+
+React loses control.
+
+Mistake 2
+
+Forgetting onChange
+
+<input value={name} />
+
+Field becomes read-only.
+
+
+Mistake 3
+
+Not using preventDefault()
+
+<form onSubmit={handleSubmit}>
+
+Page refreshes.
+
+Mistake 4
+
+Wrong Target
+
+❌
+
+e.value
+
+✅
+
+e.target.value
+Debugging Tips
+
+Check state:
+
+console.log(name);
+
+or
+
+useEffect(() => {
+  console.log(name);
+}, [name]);
+
+Useful while developing forms.
+
+Performance Tip
+
+Avoid:
+
+50 separate states
+
+Instead use object state:
+
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  phone: ""
+});
+
+Useful for large forms.
+
+Industry Best Practice
+
+Most companies use:
+
+React State
++
+Controlled Components
++
+Form Validation
+
+Libraries later:
+
+React Hook Form
+Formik
+Zod
+
+You'll learn these later.
+
+10. Interview Questions
+Q1. What is a controlled component?
+
+Answer:
+
+A component whose form data is controlled by React state.
+
+Q2. Why use controlled components?
+
+Answer:
+
+React can track and manage input values.
+
+Q3. What is e.target.value?
+
+Answer:
+
+The current value entered in the input field.
+
+Q4. Why use preventDefault()?
+
+Answer:
+
+To stop the browser's default form submission behavior.
+
+Q5. Controlled vs Uncontrolled?
+
+Answer:
+
+Controlled → React State manages data.
+
+Uncontrolled → DOM manages data.
+
+11. Hands-On Coding Task
+
+Build:
+
+Student Name Input
+
+Requirements:
+
+Create state.
+Add input field.
+Show typed name below input.
+
+Example:
+
+Enter Name:
+[John]
+
+Hello John
+12. Mini Challenge
+
+Build a Feedback Form:
+
+Fields:
+
+Name
+Email
+Message
+
+Requirements:
+
+✅ Store all values in state
+
+✅ Show entered data below form
+
+Example:
+
+Name: John
+Email: john@gmail.com
+Message: Great website
+
+Try yourself first.
+
+13. Solution
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  return (
+    <div>
+      <input
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <input
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <textarea
+        placeholder="Message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+
+      <h3>Name: {name}</h3>
+      <h3>Email: {email}</h3>
+      <h3>Message: {message}</h3>
+    </div>
+  );
+}
+
+export default App;
+14. Summary
+
+Today you learned:
+
+✅ React Forms
+
+✅ Controlled Components
+
+✅ Input Handling
+
+✅ Form Submission
+
+✅ onChange
+
+✅ value Prop
+
+✅ e.target.value
+
+✅ preventDefault()
+
+✅ Controlled vs Uncontrolled Components
+
+15. Exam Notes
+Form = User Input Collection
+
+Controlled Component:
+Input value managed by React state
+
+value → Current state
+
+onChange → Updates state
+
+e.target.value → Current input value
+
+preventDefault() → Stops page refresh
+
+Controlled > Uncontrolled
+16. Revision Flashcards
+Flashcard 1
+
+Q: What is a controlled component?
+
+A: An input controlled by React state.
+
+Flashcard 2
+
+Q: Which event tracks typing?
+
+A: onChange
+
+Flashcard 3
+
+Q: Current input value?
+
+A: e.target.value
+
+Flashcard 4
+
+Q: Prevent page refresh?
+
+A: e.preventDefault()
+
+Flashcard 5
+
+Q: Recommended approach?
+
+A: Controlled Components
+
+17. Practice Questions
+Easy
+What is a form?
+What does onChange do?
+What is value prop?
+Medium
+Controlled vs Uncontrolled?
+Why use preventDefault()?
+Explain e.target.value.
+Hard
+
+Build:
+
+Registration Form
+
+Name
+Email
+Password
+Confirm Password
+
+Store all data using React state.
+
+18. Industry Tips
+Real Projects Use:
+Login Forms
+Registration Forms
+Search Bars
+Checkout Pages
+Contact Forms
+Production Flow
+User Input
+↓
+State Updates
+↓
+Validation
+↓
+API Call
+↓
+Backend
+↓
+Database
+🗺️ Roadmap Progress
+
+✅ Day 1–10 Completed
+
+JavaScript for React
+ES6+
+JSX
+Components
+Props
+State
+Events
+
+✅ Day 11 Completed
+
+Forms
+Controlled Components
+Coming Next
+
+Day 12 → Form Validation & Multiple Inputs Handling
+
+This is where your forms start becoming professional and job-ready. 🚀
+
+Your Revision Questions (Answer Now)
+What is the difference between a controlled and uncontrolled component?
+Why does React use value={state} in inputs?
+What will happen if you write:
+
