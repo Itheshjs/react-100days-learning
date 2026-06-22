@@ -1,0 +1,720 @@
+let name="name";
+let age=22;
+let city="banglore";
+
+console.log("My name is " + name);
+console.log("i am "+age+"year old");
+console.log("I live in"+city);
+
+To start the 100-day journey properly I need the day number.
+
+Reply with one of these:
+
+Day 1
+Day 2
+Day 15
+Day 37
+etc.
+
+Since you want only practical coding and line-by-line code explanations with minimal theory, I will teach using this format:
+
+✅ Write code first
+✅ Explain every line in detail
+✅ VS Code setup when needed
+✅ Debugging tips
+✅ Real project examples
+✅ Industry practices
+✅ Exercises and challenges
+✅ Interview coding questions
+❌ Long theory explanations
+❌ Unnecessary history or concepts
+
+Example of how lessons will look
+function App() {
+  const name = "Ithesh";
+
+  return (
+    <h1>Hello {name}</h1>
+  );
+}
+
+export default App;
+
+Line-by-line:
+
+function App()
+function → Creates a JavaScript function.
+App → Component name.
+React components must start with a capital letter.
+{
+Opening brace of function body.
+const name = "Ithesh";
+const → Variable that cannot be reassigned.
+name → Variable name.
+"Ithesh" → String value.
+return (
+Returns JSX to the browser.
+<h1>Hello {name}</h1>
+<h1> → Heading element.
+{name} → Insert JavaScript variable inside JSX.
+);
+End of returned JSX.
+}
+End of component.
+export default App;
+Makes component available for use in other files.
+React 100-Day Roadmap
+
+Phase 1 (Day 1-15)
+
+JavaScript for React
+ES6+
+DOM
+NPM
+Vite
+JSX
+Components
+Props
+State
+Events
+
+Phase 2 (Day 16-35)
+
+Rendering
+Conditional Rendering
+Lists
+Forms
+useState
+useEffect
+useRef
+useMemo
+useCallback
+
+Phase 3 (Day 36-55)
+
+Custom Hooks
+Context API
+Reducers
+API Calls
+Authentication Basics
+
+Phase 4 (Day 56-75)
+
+Routing
+Protected Routes
+Redux Toolkit
+Performance Optimization
+React Patterns
+
+Phase 5 (Day 76-90)
+
+Real Projects
+
+Phase 6 (Day 91-100)
+
+Interview Preparation
+Machine Coding
+Portfolio
+Deployment
+
+Tell me the day number:
+👉 Day 1
+
+and I'll begin with a practical coding lesson from scratch.
+
+from day1 to day12explain
+
+Covering Day 1 to Day 12 in one message would be extremely large (hundreds of pages if every code line is explained in detail).
+
+Since your goal is to learn properly and become job-ready, I recommend learning one day at a time.
+
+Days 1–12 Roadmap
+Day	Topic
+Day 1	Variables and Data Types
+Day 2	Functions and Arrow Functions
+Day 3	Arrays and Array Methods
+Day 4	Objects
+Day 5	Destructuring
+Day 6	Spread and Rest Operators
+Day 7	Template Literals
+Day 8	ES6 Modules
+Day 9	DOM Manipulation
+Day 10	NPM and Node Basics
+Day 11	Vite Setup
+Day 12	JSX Fundamentals
+Day 1 – Variables and Data Types (Practical Only)
+Step 1: Create a file
+// app.js
+
+let username = "Ithesh";
+let age = 22;
+let isStudent = true;
+
+console.log(username);
+console.log(age);
+console.log(isStudent);
+Line-by-Line Explanation
+Line 1
+let username = "Ithesh";
+Breakdown
+let
+Creates a variable.
+Variable stores data.
+username
+Variable name.
+=
+Assignment operator.
+Stores value into variable.
+"Ithesh"
+String value.
+;
+End of statement.
+Line 2
+let age = 22;
+let
+
+Creates variable.
+
+age
+
+Variable name.
+
+22
+
+Number value.
+
+Line 3
+let isStudent = true;
+true
+
+Boolean value.
+
+Only:
+
+true
+false
+Line 5
+console.log(username);
+console
+
+Browser console object.
+
+log
+
+Print method.
+
+(username)
+
+Value to display.
+
+Output:
+
+Ithesh
+Practice 1
+let city = "Bangalore";
+
+console.log(city);
+
+Output:
+
+Bangalore
+Practice 2
+let college = "GEC";
+let sem = 7;
+
+console.log(college);
+console.log(sem);
+
+Output:
+
+GEC
+7
+Data Types
+String
+let name = "Ithesh";
+Number
+let age = 22;
+Boolean
+let passed = true;
+Undefined
+let data;
+
+console.log(data);
+
+Output:
+
+undefined
+Null
+let user = null;
+
+Meaning:
+
+No value
+typeof Operator
+let name = "Ithesh";
+
+console.log(typeof name);
+
+Output
+
+string
+
+Example
+
+let age = 22;
+
+console.log(typeof age);
+
+Output
+
+number
+
+Example
+
+let passed = true;
+
+console.log(typeof passed);
+
+Output
+
+boolean
+Mini Exercise
+
+Predict Output
+
+let a = "React";
+let b = 100;
+
+console.log(a);
+console.log(b);
+
+Answer
+
+React
+100
+Practical Task
+
+Create variables for:
+
+name
+college
+semester
+branch
+cgpa
+
+Print all values.
+
+Mini Challenge
+
+Write code that stores:
+
+Name
+Age
+City
+
+and prints:
+
+My name is Ithesh
+I am 22 years old
+I live in Bangalore
+
+Try yourself first.
+
+Solution
+let name = "Ithesh";
+let age = 22;
+let city = "Bangalore";
+
+console.log("My name is " + name);
+console.log("I am " + age + " years old");
+console.log("I live in " + city);
+Interview Question
+Difference between let var and const?
+let
+
+Can change value.
+
+const
+
+Cannot reassign.
+
+var
+
+Old JavaScript way. Avoid in modern React.
+
+Day 1 Summary
+✓ Variables
+✓ let
+✓ String
+✓ Number
+✓ Boolean
+✓ Undefined
+✓ Null
+✓ typeof
+✓ console.log()
+
+function greet(){
+    console.log("Hello React")
+}
+
+greet();
+
+line-by-line explanations
+function greet(){}
+
+function
+* javascript keyboard
+*used to create a function 
+
+greet
+* function name 
+can be any meaningful
+
+()
+*
+
+()
+Parentheses.
+Used for parameters (inputs).
+{
+Start of function body.
+
+Line 5
+greet();
+
+Function call.
+
+Without calling:
+
+function greet() {
+  console.log("Hello");
+}
+
+Nothing happens.
+
+Output:
+
+No output
+
+Calling it:
+
+greet();
+
+Output:
+
+Hello
+
+function showMessage() {
+  console.log("Welcome to React");
+}
+
+showMessage();
+
+Welcome to React
+
+function greet(name){
+    console.log("Hello"+name);
+}
+greet("Ithesh")
+
+
+Line-by-Line
+Function Creation
+function greet(name)
+name
+
+Parameter.
+
+Receives value.
+
+
+Function Call
+greet("Ithesh");
+"Ithesh"
+
+Argument.
+
+Passed into parameter.
+
+Flow
+
+"Ithesh"
+    ↓
+ parameter name
+    ↓
+ console.log
+
+
+ function add(a, b) {
+  return a + b;
+}
+
+let result = add(10, 20);
+
+console.log(result);
+
+Line-by-Line
+function add(a, b)
+
+Receives two values.
+
+return a + b;
+
+Returns result.
+
+let result = add(10, 20);
+
+Calls function.
+
+Stores returned value.
+
+let result = add(10, 20);
+
+Calls function.
+
+Stores returned value.
+
+console.log(result);
+
+Prints:
+
+30
+Visual Diagram
+add(10,20)
+
+a = 10
+b = 20
+
+a+b
+
+30
+
+return 30
+
+result = 30
+Arrow Functions (Modern React Style)
+
+React mostly uses arrow functions.
+
+Normal Function
+function greet() {
+  console.log("Hello");
+}
+Arrow Function
+const greet = () => {
+  console.log("Hello");
+};
+
+greet();
+
+Output
+
+Hello
+Line-by-Line
+Line 1
+const greet =
+
+Creates variable named greet.
+
+Stores function.
+
+()
+
+Parameters.
+
+No parameters here.
+
+=>
+
+Arrow syntax.
+
+Modern ES6 function.
+
+{
+
+Function body starts.
+
+console.log("Hello");
+
+Prints text.
+
+};
+
+Ends function.
+
+Arrow Function with Parameter
+const greet = (name) => {
+  console.log("Hello " + name);
+};
+
+greet("Ithesh");
+
+Output
+
+Hello Ithesh
+Arrow Function Returning Value
+const add = (a, b) => {
+  return a + b;
+};
+
+console.log(add(5, 3));
+
+Output
+
+8
+Short Arrow Function
+
+Instead of
+
+const add = (a, b) => {
+  return a + b;
+};
+
+Write
+
+const add = (a, b) => a + b;
+
+console.log(add(5, 3));
+
+Output
+
+8
+Real React Example
+
+You will often see:
+
+const Button = () => {
+  return <button>Click Me</button>;
+};
+
+Don't worry about JSX yet.
+
+Just understand:
+
+const Button = () => {}
+
+is a React component function.
+
+Common Mistakes
+Forgetting Function Call
+function greet() {
+  console.log("Hello");
+}
+
+Output
+
+Nothing
+
+Because:
+
+greet();
+
+was not called.
+
+Missing Return
+
+Wrong
+
+function add(a, b) {
+  a + b;
+}
+
+Output
+
+undefined
+
+Correct
+
+function add(a, b) {
+  return a + b;
+}
+Practice Task 1
+
+Create:
+
+function square(num)
+
+Print square of number.
+
+Example:
+
+square(5);
+
+Output
+
+25
+Practice Task 2
+
+Create:
+
+function student(name, branch)
+
+Output:
+
+Ithesh CSE
+Mini Challenge
+
+Create function:
+
+function multiply(a, b)
+
+Return multiplication result.
+
+Example:
+
+multiply(10, 5)
+
+Output:
+
+50
+
+Try yourself first.
+
+Solution
+function multiply(a, b) {
+  return a * b;
+}
+
+console.log(multiply(10, 5));
+
+Output
+
+50
+Interview Questions
+What is a function?
+
+Reusable block of code.
+
+Difference between parameter and argument?
+
+Parameter:
+
+function greet(name)
+
+Argument:
+
+greet("Ithesh")
+Why are arrow functions used in React?
+
+Modern syntax.
+Shorter code.
+Most React projects use them.
+
+Day 2 Summary
+✓ Functions
+✓ Function Calls
+✓ Parameters
+✓ Arguments
+✓ Return
+✓ Arrow Functions
+✓ Short Arrow Functions
+✓ React Function Style
+Revision Questions
+What is the difference between return and console.log()?
+What is the output of:
+const add = (a, b) => a + b;
+console.log(add(2, 3));
+Parameter or Argument?
+function greet(name) {}
+greet("Ithesh");
+
