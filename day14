@@ -1,0 +1,483 @@
+import{useState} from "react"
+
+import { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <h1>{count}</h1>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+    </>
+  );
+}
+
+export default App;
+
+
+How It Works
+
+Initial:
+
+count = 0
+
+Click:
+
+count + 1
+
+Result:
+
+1
+
+Click again:
+
+2
+
+And so on.
+
+Problem: Multiple Updates
+
+Consider:
+
+setCount(count + 1);
+setCount(count + 1);
+
+Expected:
+
++2
+
+Actual:
+
++1
+
+Why?
+
+Because React batches updates.
+
+Both lines use the same old value.
+
+
+
+Solution: Functional Updates
+
+Use:
+
+setCount(prev => prev + 1);
+Syntax
+setCount(previousValue => {
+    return previousValue + 1;
+});
+
+Short form:
+
+setCount(prev => prev + 1);
+
+
+Line by Line Explanation
+prev => prev + 1
+prev
+
+Previous state value.
+
+Example:
+
+prev = 5
+prev + 1
+
+Returns:
+
+6
+
+React stores 6.
+
+Example
+setCount(prev => prev + 1);
+setCount(prev => prev + 1);
+
+Result:
+
+0 → 1 → 2
+
+Now it correctly increases by 2.
+
+
+
+Visual Flow
+count = 0
+
+First Update
+0 + 1 = 1
+
+Second Update
+1 + 1 = 2
+
+Final Value = 2
+Real World Example
+
+Shopping Cart
+
+const [items, setItems] = useState(0);
+
+function addItem() {
+  setItems(prev => prev + 1);
+}
+
+Every click adds one item.
+
+
+
+Multiple State Variables
+
+A component can have many states.
+
+Example:
+
+const [name, setName] = useState("");
+const [age, setAge] = useState(20);
+const [city, setCity] = useState("Bangalore");
+Why?
+
+Different data should have separate states.
+
+Example:
+
+Name
+Age
+Email
+Phone
+
+Each changes independently.
+
+
+Example
+import { useState } from "react";
+
+function App() {
+
+  const [name, setName] = useState("");
+  const [age, setAge] = useState(20);
+
+  return (
+    <>
+      <h2>Name: {name}</h2>
+      <h2>Age: {age}</h2>
+
+      <button onClick={() => setName("Ithesh")}>
+        Set Name
+      </button>
+
+      <button onClick={() => setAge(age + 1)}>
+        Increase Age
+      </button>
+    </>
+  );
+}
+
+export default App;
+Visual Representation
+Component
+
+ ├── name = ""
+ ├── age = 20
+
+Button 1
+   |
+   v
+Updates name
+
+Button 2
+   |
+   v
+Updates age
+
+
+State Best Practices
+Good
+const [name, setName] = useState("");
+const [email, setEmail] = useState("");
+
+Separate state.
+
+Bad
+const [everything, setEverything] = useState();
+
+Too vague.
+
+
+Common Mistakes
+Mistake 1
+
+Direct modification
+
+❌
+
+count = count + 1;
+
+Correct:
+
+setCount(count + 1);
+
+
+Mistake 2
+
+Updating twice
+
+❌
+
+setCount(count + 1);
+setCount(count + 1);
+
+Correct:
+
+setCount(prev => prev + 1);
+setCount(prev => prev + 1);
+
+
+Mistake 3
+
+Forgetting initial value
+
+❌
+
+useState();
+
+Better:
+
+useState("");
+
+or
+
+useState(0);
+
+
+Industry Example
+
+Login Form
+
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [loading, setLoading] = useState(false);
+
+Each state controls a specific feature.
+
+This is how real projects are built.
+
+
+Interview Questions
+Q1
+
+What is the difference between:
+
+setCount(count + 1);
+
+and
+
+setCount(prev => prev + 1);
+Answer
+
+Functional updates use the latest state value and prevent stale state problems.
+
+
+Q2
+
+Can a component have multiple states?
+
+Answer
+
+Yes.
+
+const [name, setName] = useState("");
+const [age, setAge] = useState(20);
+
+
+Q3
+
+Does changing state re-render the component?
+
+Answer
+
+Yes.
+
+React updates the UI automatically.
+
+Hands-On Coding Task
+
+Create:
+
+Counter App
+
+Requirements:
+
+Count starts at 0
+Increase button
+Decrease button
+Reset button
+
+Use useState().
+
+Mini Challenge
+
+Create a Student Profile component.
+
+Requirements:
+
+Name: Empty
+Age: 18
+
+Buttons:
+
+Set Name
+Increase Age
+Reset
+
+Try yourself before seeing solution.
+
+Solution
+import { useState } from "react";
+
+function App() {
+
+  const [name, setName] = useState("");
+  const [age, setAge] = useState(18);
+
+  function resetData() {
+    setName("");
+    setAge(18);
+  }
+
+  return (
+    <>
+      <h1>Name: {name}</h1>
+      <h1>Age: {age}</h1>
+
+      <button onClick={() => setName("Ithesh")}>
+        Set Name
+      </button>
+
+      <button onClick={() => setAge(age + 1)}>
+        Increase Age
+      </button>
+
+      <button onClick={resetData}>
+        Reset
+      </button>
+    </>
+  );
+}
+
+export default App;
+Summary
+
+Today you learned:
+
+✅ Updating State
+
+✅ setState() behavior
+
+✅ Functional Updates
+
+✅ Why prev => prev + 1 is important
+
+✅ Multiple State Variables
+
+✅ State Best Practices
+
+✅ Common Mistakes
+
+✅ Industry Usage
+
+Exam Notes
+State stores dynamic data.
+
+useState() creates state.
+
+setState() updates state.
+
+State updates trigger re-render.
+
+Functional update:
+
+setCount(prev => prev + 1);
+
+A component can have multiple states.
+
+Never modify state directly.
+Revision Flashcards
+Flashcard 1
+
+Q: Which Hook creates state?
+
+A: useState()
+
+Flashcard 2
+
+Q: What updates state?
+
+A: setState function
+
+Flashcard 3
+
+Q: What happens when state changes?
+
+A: Component re-renders
+
+Flashcard 4
+
+Q: Best way to update previous state?
+
+A:
+
+setCount(prev => prev + 1);
+Practice Questions
+Easy
+What is state?
+What does useState return?
+What is setState?
+Medium
+Why use functional updates?
+Explain re-rendering.
+Can a component have 5 states?
+Hard
+Why can setCount(count + 1) fail in consecutive updates?
+Explain React batching.
+Explain state lifecycle.
+Industry Tips
+Tip 1
+
+Keep state as small as possible.
+
+Tip 2
+
+Use separate states for unrelated data.
+
+Tip 3
+
+Use functional updates when the new value depends on the old value.
+
+Tip 4
+
+Avoid storing duplicate data in state.
+
+Tip 5
+
+In large applications state management tools like Redux Toolkit are used (you will learn later).
+
+Roadmap Progress
+Phase 1: Foundations
+
+✅ Day 1-13 Completed
+✅ Day 14 Completed
+
+Remaining:
+
+Day 15 → React Events Deep Dive + Event Object + Forms Introduction
+
+After that:
+
+Phase 2 → Core React
+
+Reply with "Continue Day 15" when you are ready for the next lesson.
