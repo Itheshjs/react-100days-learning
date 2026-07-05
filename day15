@@ -1,0 +1,582 @@
+1. What is the difference between Props and State?
+
+Props are passed from a parent component and are read-only.
+State belongs to the component and can be updated using setState (e.g., setCount).
+
+
+2. Why shouldn't we write count = count + 1; instead of setCount(count + 1);?
+
+Directly changing the variable doesn't tell React to update the UI.
+setCount() updates the state and automatically re-renders the component.
+
+3. Which Hook is used for creating state?
+
+The useState() Hook is used to create and manage state in functional components.
+Example: const [count, setCount] = useState(0);
+
+
+1. What is it?
+
+An event is something that happens because of the user.
+
+Examples:
+
+Clicking a button
+Typing inside an input
+Hovering over an image
+Pressing a keyboard key
+Submitting a form
+
+React listens for these actions and lets us run JavaScript code when they happen.
+
+Example:
+
+User clicks button
+
+↓
+
+React detects click
+
+↓
+
+Runs your function
+
+↓
+
+Updates UI
+
+
+2. Why do we need Events?
+
+Imagine a website where nothing responds.
+
+You click...
+
+Nothing.
+
+You type...
+
+Nothing.
+
+You submit...
+
+Nothing.
+
+That would be useless.
+
+Events make websites interactive.
+
+Without events React would only display information.
+
+With events React can:
+
+Open menus
+Change colors
+Submit forms
+Increase counters
+Login users
+Search products
+Add items to cart
+
+Everything interactive uses events.
+
+
+3. Real-world Analogy
+
+Think of a doorbell.
+
+Visitor presses bell
+↓
+Bell rings
+↓
+You open the door
+
+function App() {
+
+  function sayHello() {
+    alert("Hello!");
+  }
+
+  return (
+    <button onClick={sayHello}>
+      Click Me
+    </button>
+  );
+
+}
+
+
+5. Line-by-Line Explanation
+function App() {
+
+Creates a React component.
+
+function sayHello() {
+
+Creates a function.
+
+alert("Hello!");
+
+Runs when called.
+
+return (
+
+Returns JSX.
+
+<button
+
+Creates a button.
+
+onClick={sayHello}
+
+Meaning:
+
+"When clicked, call this function."
+
+Notice we pass the function reference, not execute it immediately.
+
+Click Me
+
+Button text.
+
+Why not this?
+
+❌ Wrong
+
+onClick={sayHello()}
+
+This immediately runs the function while rendering.
+
+Correct:
+
+onClick={sayHello}
+
+
+6. Visual Explanation
+User
+↓
+Clicks Button
+
+↓
+onClick
+↓
+sayHello()
+↓
+Alert Opens
+
+
+7. Beginner Example
+function App() {
+
+  function greet() {
+    alert("Welcome!");
+  }
+
+  return (
+    <button onClick={greet}>
+      Welcome
+    </button>
+  );
+
+}
+
+Flow
+Click
+↓
+greet()
+↓
+Alert
+
+import { useState } from "react";
+
+function App() {
+
+  const [count, setCount] = useState(0);
+
+  function increase() {
+    setCount(count + 1);
+  }
+
+  return (
+    <>
+      <h1>{count}</h1>
+
+      <button onClick={increase}>
+        Increase
+      </button>
+    </>
+  );
+
+}
+
+Line-by-Line
+const [count, setCount] = useState(0);
+
+Creates state.
+
+function increase() {
+
+Function runs after clicking.
+
+
+8. Real-world Example
+
+Shopping Cart
+
+function App() {
+
+  const [cart, setCart] = useState(0);
+
+  function addItem() {
+    setCart(cart + 1);
+  }
+
+  return (
+    <>
+      <h2>Cart Items: {cart}</h2>
+
+      <button onClick={addItem}>
+        Add To Cart
+      </button>
+    </>
+  );
+
+}
+
+
+Passing Arguments
+
+Suppose you need:
+
+deleteProduct(5);
+
+Wrong
+
+<button onClick={deleteProduct(5)}>
+
+Correct
+
+<button onClick={() => deleteProduct(5)}>
+
+Why?
+
+Because React should wait until the click happens.
+
+
+function App() {
+
+  function greet(name) {
+    alert("Hello " + name);
+  }
+
+  return (
+    <button
+      onClick={() => greet("John")}
+    >
+      Say Hello
+    </button>
+  );
+
+}
+
+Event Object
+
+React provides an event object.
+
+function handleClick(event) {
+
+  console.log(event);
+
+}
+<button onClick={handleClick}>
+
+The event contains useful information.
+
+function App() {
+
+  function typing(event) {
+
+    console.log(event.target.value);
+
+  }
+
+  return (
+    <input
+      onChange={typing}
+    />
+  );
+
+}
+
+A
+↓
+Console
+A
+AB
+↓
+Console
+AB
+
+
+| Event        | Purpose           |
+| ------------ | ----------------- |
+| onClick      | Mouse click       |
+| onChange     | Input changes     |
+| onSubmit     | Form submit       |
+| onMouseEnter | Mouse enters      |
+| onMouseLeave | Mouse leaves      |
+| onKeyDown    | Keyboard pressed  |
+| onFocus      | Input selected    |
+| onBlur       | Input loses focus |
+
+
+<button
+
+onMouseEnter={() => console.log("Hover")}
+
+onClick={() => console.log("Clicked")}
+
+>
+Button
+</button>
+
+9. Common Mistakes
+Mistake 1
+onClick={hello()}
+
+❌ Wrong
+
+Runs immediately.
+
+Correct
+
+onClick={hello}
+
+
+Mistake 2
+
+Using lowercase
+
+onclick
+
+Wrong.
+
+React uses camelCase.
+
+Correct
+
+onClick
+
+
+Mistake 3
+
+Forgetting arrow function when passing arguments.
+
+Wrong
+
+onClick={deleteUser(2)}
+
+Correct
+
+onClick={() => deleteUser(2)}
+
+🐞 Debugging Techniques
+Use console.log() inside event handlers:
+function handleClick() {
+  console.log("Button clicked");
+}
+Inspect the event object:
+function handleChange(event) {
+  console.log(event);
+}
+Check the browser's developer console for errors.
+Verify that you passed a function reference, not a function call.
+
+⚡ Performance Tips
+Don't create unnecessarily complex inline arrow functions inside very large lists.
+Keep event handler functions focused on one task.
+Name handlers clearly:
+handleClick
+handleSubmit
+handleChange
+For most apps, simple inline arrow functions are perfectly fine. Optimize only when profiling shows a real performance issue.
+
+💼 Industry Best Practices
+
+Prefix handler names with handle:
+
+function handleSubmit() {}
+function handleLogin() {}
+Keep business logic separate from JSX when possible.
+Validate user input inside event handlers before updating state.
+
+
+
+onClick={handleclick} runs only when event occurse ,handleclick() runs immediatly during rendering 
+
+
+how do you pass argument to an event handler ?
+
+<button onclick={()=>deleteuser(10)}>
+
+
+Q2. Why use onClick={handleClick} instead of onClick={handleClick()}?
+
+Answer: onClick={handleClick} passes the function to React so it runs only when the event occurs. handleClick() executes immediately during rendering.
+
+Q3. How do you pass arguments to an event handler?
+
+Answer:
+
+<button onClick={() => deleteUser(10)}>
+  Delete
+</button>
+Q4. What does event.target.value return?
+
+Answer: It returns the current value of an input element.
+
+
+Name four common React events.
+
+Answer: onClick, onChange, onSubmit, onKeyDown.
+
+
+11. Hands-on Coding Task
+
+Create a React app that includes:
+
+A heading displaying a number starting at 0.
+An Increase button (+1).
+A Decrease button (-1).
+A Reset button (sets the number back to 0).
+
+Requirements:
+
+Use useState.
+Create separate functions:
+handleIncrease
+handleDecrease
+handleReset
+
+
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
+import './App.css'
+import Employee from "./Employee"
+import Student from "./Student"
+import { renderToPipeableStream } from 'react-dom/server'
+import Counter from "./counter"
+
+function App() {
+//  return
+//   <div className="container">
+//   <Employee name="Ithesh" 
+//   role="Developer"
+//   salary="40000"
+//   />
+
+//    <Student Usn="123" 
+//   Name="rahul"
+//   Branch="cs"
+//   Score="88" />
+//   <div/>
+//  );
+//  return (
+//     <div className="container">
+//       <Employee
+//         name="Ithesh"
+//         role="Developer"
+//         salary="40000"
+//       />
+
+//       <Student
+//         Usn="123"
+//         Name="Rahul"
+//         Branch="CS"
+//         Score="88"
+//       />
+//     </div>
+//   );
+
+
+// const[count,setCount]=useState(0)
+
+// return(
+//   <>
+//   <h3>{count}</h3>
+//   <button onClick={()=>{
+//     setCount(count+1);
+//   }}>increase</button>
+
+//   <button onClick={()=>{
+//     setCount(count-1);
+//   }}>decrease</button>
+//   </>
+// )
+
+// const handleClick=()=>{
+//   alert("button is clicked ")
+// };
+
+// return (
+//   <button onClick={handleClick}>Click Me</button>
+// );
+
+// const[name,setName]=useState("");
+
+// return(
+//   <div>
+//     <input type="text"
+//     value={name}
+//     onChange={(e)=>setName(e.target.value)}
+//   />
+//   <h2>{name}</h2>
+//   </div>
+// );
+
+// const[count,setCount]=useState(0);
+// function increase(){
+//   setCount(count+1)
+// }
+
+// function deacrease(){
+//   setCount(count-1)
+// }
+// function reset(){
+//   setCount(0)
+// }
+
+// return(
+  
+// );
+
+const[likes,setlikes]=useState(0)
+
+function handlelike(){
+  setlikes(likes+1);
+}
+
+function handleunlike(){
+  setlikes(likes-1);
+}
+
+return(
+  <>
+  <h2>Likess:{likes}</h2>
+
+  <button onClick={handlelike}>
+    ❤️Like
+  </button>
+
+  <button onClick={handleunlike}>
+    💔dislike
+  </button>
+  </>
+)
+}
+
+
+
+export default App
