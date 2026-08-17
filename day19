@@ -1,983 +1,1581 @@
-... is called spred operatior if in array previousarry[...previousarray.neitem]
+function app(){
+    const isLoggedIn=true;
 
-
-
-Yes 👍 I'll show you exactly where to change it.
-
-You need to change it in TodoItem.jsx.
-
-1. Open this file in VS Code
-src
-└── components
-    └── TodoItem.jsx
-2. Find this line
-You currently have:
-
-<div>
-3. Change it to
-<div className="todo-item">
-So your complete TodoItem.jsx should be:
-
-function TodoItem({ todo, onToggleTodo, onDeleteTodo }) {
-  return (
-    <div className="todo-item">
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => onToggleTodo(todo.id)}
-      />
-
-      <span
-        style={{
-          textDecoration: todo.completed
-            ? "line-through"
-            : "none",
-        }}
-      >
-        {todo.text}
-      </span>
-
-      <button onClick={() => onDeleteTodo(todo.id)}>
-        Delete
-      </button>
-    </div>
-  );
+    return <h1>Welcome</h1>
 }
 
-export default TodoItem;
-4. Then open index.css
-Your file is here:
 
-src
-├── index.css
-└── components
-    └── TodoItem.jsx
-At the bottom of index.css, put:
+🔄 Part 1 — Quick Recap
 
-.todo-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-So the connection is:
-TodoItem.jsx
-     ↓
-<div className="todo-item">
-     ↓
-index.css
-     ↓
-.todo-item {
-   display: flex;
-   ...
-}
-That's all you need to do for 35.
+On Day 18, you learned about React rendering.
 
-After saving both files, your browser should automatically update because Vite has hot reload enabled.
+The important idea was:
 
+React takes your component's data and produces the UI that appears on the screen.
 
-(.counter { 
-  font-size: 16px; 
-  padding: 5px 10px; 
-  border-radius: 5px; 
-  color: var(--accent); 
-  background: var(--accent-bg); 
-  border: 2px solid transparent; 
-  transition: border-color 0.3s; 
-  margin-bottom: 24px; 
- 
-  &:hover { 
-    border-color: var(--accent-border); 
-  } 
-  &:focus-visible { 
-    outline: 2px solid var(--accent); 
-    outline-offset: 2px; 
-  } 
-} 
- 
-.hero { 
-  position: relative; 
- 
-  .base, 
-  .framework, 
-  .vite { 
-    inset-inline: 0; 
-    margin: 0 auto; 
-  } 
- 
-  .base { 
-    width: 170px; 
-    position: relative; 
-    z-index: 0; 
-  } 
- 
-  .framework, 
-  .vite { 
-    position: absolute; 
-  } 
- 
-  .framework { 
-    z-index: 1; 
-    top: 34px; 
-    height: 28px; 
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) 
-      scale(1.4); 
-  } 
- 
-  .vite { 
-    z-index: 0; 
-    top: 107px; 
-    height: 26px; 
-    width: auto; 
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) 
-      scale(0.8); 
-  } 
-} 
- 
-#center { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 25px; 
-  place-content: center; 
-  place-items: center; 
-  flex-grow: 1; 
- 
-  @media (max-width: 1024px) { 
-    padding: 32px 20px 24px; 
-    gap: 18px; 
-  } 
-} 
- 
-#next-steps { 
-  display: flex; 
-  border-top: 1px solid var(--border); 
-  text-align: left; 
- 
-  & > div { 
-    flex: 1 1 0; 
-    padding: 32px; 
-    @media (max-width: 1024px) { 
-      padding: 24px 20px; 
-    } 
-  } 
- 
-  .icon { 
-    margin-bottom: 16px; 
-    width: 22px; 
-    height: 22px; 
-  } 
- 
-  @media (max-width: 1024px) { 
-    flex-direction: column; 
-    text-align: center; 
-  } 
-} 
- 
-#docs { 
-  border-right: 1px solid var(--border); 
- 
-  @media (max-width: 1024px) { 
-    border-right: none; 
-    border-bottom: 1px solid var(--border); 
-  } 
-} 
- 
-#next-steps ul { 
-  list-style: none; 
-  padding: 0; 
-  display: flex; 
-  gap: 8px; 
-  margin: 32px 0 0; 
- 
-  .logo { 
-    height: 18px; 
-  } 
- 
-  a { 
-    color: var(--text-h); 
-    font-size: 16px; 
-    border-radius: 6px; 
-    background: var(--social-bg); 
-    display: flex; 
-    padding: 6px 12px; 
-    align-items: center; 
-    gap: 8px; 
-    text-decoration: none; 
-    transition: box-shadow 0.3s; 
- 
-    &:hover { 
-      box-shadow: var(--shadow); 
-    } 
-    .button-icon { 
-      height: 18px; 
-      width: 18px; 
-    } 
-  } 
- 
-  @media (max-width: 1024px) { 
-    margin-top: 20px; 
-    flex-wrap: wrap; 
-    justify-content: center; 
- 
-    li { 
-      flex: 1 1 calc(50% - 8px); 
-    } 
- 
-    a { 
-      width: 100%; 
-      justify-content: center; 
-      box-sizing: border-box; 
-    } 
-  } 
-} 
- 
-#spacer { 
-  height: 88px; 
-  border-top: 1px solid var(--border); 
-  @media (max-width: 1024px) { 
-    height: 48px; 
-  } 
-} 
- 
-.ticks { 
-  position: relative; 
-  width: 100%; 
- 
-  &::before, 
-  &::after { 
-    content: ''; 
-    position: absolute; 
-    top: -4.5px; 
-    border: 5px solid transparent; 
-  } 
- 
-  &::before { 
-    left: 0; 
-    border-left-color: var(--border); 
-  } 
-  &::after { 
-    right: 0; 
-    border-right-color: var(--border); 
-  } 
-} 
-,import { useState } from "react"; 
- 
-function TodoForm({ onAddTodo }) { 
-  const [text, setText] = useState(""); 
- 
-  const handleSubmit = (event) => { 
-    event.preventDefault(); 
- 
-    if (text.trim() === "") { 
-      return; 
-    } 
- 
-    onAddTodo(text); 
- 
-    setText(""); 
-  }; 
- 
-  return ( 
-    <form onSubmit={handleSubmit}> 
-      <input 
-        type="text" 
-        placeholder="Enter a todo" 
-        value={text} 
-        onChange={(event) => setText(event.target.value)} 
-      /> 
- 
-      <button type="submit"> 
-        Add Todo 
-      </button> 
-    </form> 
-  ); 
-} 
- 
-export default TodoForm; ,function TodoItem({ todo, onToggleTodo, onDeleteTodo }) { 
-  return ( 
-    <div className="todo-item"> 
-      <input 
-        type="checkbox" 
-        checked={todo.completed} 
-        onChange={() => onToggleTodo(todo.id)} 
-      /> 
- 
-      <span 
-        style={{ 
-          textDecoration: todo.completed 
-            ? "line-through" 
-            : "none", 
-        }} 
-      > 
-        {todo.text} 
-      </span> 
- 
-      <button onClick={() => onDeleteTodo(todo.id)}> 
-        Delete 
-      </button> 
-    </div> 
-  ); 
-} 
- 
-export default TodoItem; ,import TodoItem from "./TodoItem"; 
- 
-function TodoList({ todos, onToggleTodo, onDeleteTodo }) { 
-  if (todos.length === 0) { 
-    return <p>No todos yet. Add your first todo!</p>; 
-  } 
- 
-  return ( 
-    <div> 
-      {todos.map((todo) => ( 
-        <TodoItem 
-          key={todo.id} 
-          todo={todo} 
-          onToggleTodo={onToggleTodo} 
-          onDeleteTodo={onDeleteTodo} 
-        /> 
-      ))} 
-    </div> 
-  ); 
-} 
- 
-export default TodoList; , in this cheak what wrong 
-
-Yes — I can see the problem. Your TodoForm.jsx, TodoItem.jsx, and TodoList.jsx are basically correct.
-
-The main problem is your CSS file.
-
-❌ Problem 1: You are using nested CSS
-Your CSS contains things like:
-
-.counter {
-  ...
-
-  &:hover {
-    ...
-  }
-
-  &:focus-visible {
-    ...
-  }
-}
-and:
-
-.hero {
-  ...
-
-  .base {
-    ...
-  }
-}
-and:
-
-#next-steps {
-  ...
-
-  & > div {
-    ...
-  }
-}
-This is CSS nesting syntax. Modern browsers support CSS nesting, but the CSS you pasted appears to be the default Vite template styling, not the simple CSS I gave you for the Todo project.
-
-You don't need any of that for our Todo project.
-
-✅ Easiest fix
-Since we're learning React and don't need the Vite starter CSS, replace your entire index.css with this:
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-}
-
-.app {
-  width: 500px;
-  max-width: 90%;
-  margin: 50px auto;
-  padding: 30px;
-  background: white;
-  border-radius: 10px;
-}
-
-h1 {
-  text-align: center;
-}
-
-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-input[type="text"] {
-  flex: 1;
-  padding: 10px;
-}
-
-button {
-  padding: 10px 15px;
-  cursor: pointer;
-}
-
-.todo-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-Delete all the old CSS and put only this.
-
-✅ Problem 2: Check your App.jsx
-You didn't paste your App.jsx, but it needs to have this:
-
-import { useEffect, useState } from "react";
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
+For example:
 
 function App() {
-  const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem("todos");
+  const name = "Ithesh";
 
-    return savedTodos ? JSON.parse(savedTodos) : [];
-  });
 
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
-  const addTodo = (text) => {
-    const newTodo = {
-      id: Date.now(),
-      text: text,
-      completed: false,
-    };
-
-    setTodos((previousTodos) => {
-      return [...previousTodos, newTodo];
-    });
-  };
-
-  const toggleTodo = (id) => {
-    setTodos((previousTodos) => {
-      return previousTodos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed,
-          };
-        }
-
-        return todo;
-      });
-    });
-  };
-
-  const deleteTodo = (id) => {
-    setTodos((previousTodos) => {
-      return previousTodos.filter((todo) => todo.id !== id);
-    });
-  };
-
-  return (
-    <div className="app">
-      <h1>Todo Manager</h1>
-
-      <TodoForm onAddTodo={addTodo} />
-
-      <TodoList
-        todos={todos}
-        onToggleTodo={toggleTodo}
-        onDeleteTodo={deleteTodo}
-      />
-    </div>
-  );
+  return <h1>Hello {name}</h1>;
 }
 
-export default App;
-Notice this:
+React evaluates:
 
-<div className="app">
-This connects to:
+name = "Ithesh"
+       ↓
+<h1>Hello Ithesh</h1>
+       ↓
+Browser UI
 
-.app {
-And this:
+You also learned that when state changes:
 
-<div className="todo-item">
-connects to:
+State changes
+     ↓
+React re-renders component
+     ↓
+New JSX is evaluated
+     ↓
+UI updates
+Example
+function App() {
+  const isLoggedIn = true;
 
-.todo-item {
-✅ Your three component files
-TodoForm.jsx
-Your code is correct:
 
-import { useState } from "react";
-
-function TodoForm({ onAddTodo }) {
-  const [text, setText] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (text.trim() === "") {
-      return;
-    }
-
-    onAddTodo(text);
-
-    setText("");
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Enter a todo"
-        value={text}
-        onChange={(event) => setText(event.target.value)}
-      />
-
-      <button type="submit">
-        Add Todo
-      </button>
-    </form>
-  );
+  return <h1>Welcome</h1>;
 }
 
-export default TodoForm;
-TodoItem.jsx
-Also correct:
+React renders the JSX returned by the component.
 
-function TodoItem({ todo, onToggleTodo, onDeleteTodo }) {
-  return (
-    <div className="todo-item">
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => onToggleTodo(todo.id)}
-      />
+Today we're going to make that UI dynamic.
 
-      <span
-        style={{
-          textDecoration: todo.completed
-            ? "line-through"
-            : "none",
-        }}
-      >
-        {todo.text}
-      </span>
 
-      <button onClick={() => onDeleteTodo(todo.id)}>
-        Delete
-      </button>
-    </div>
-  );
+
+if (isLoading){
+    return <Loading/>;
+}
+if(error){
+    return <errormessage/>
 }
 
-export default TodoItem;
-TodoList.jsx
-Also correct:
+return <productList/>
 
-import TodoItem from "./TodoItem";
 
-function TodoList({ todos, onToggleTodo, onDeleteTodo }) {
-  if (todos.length === 0) {
-    return <p>No todos yet. Add your first todo!</p>;
-  }
+{} curly bracket help to evolute javascript expression indie the jsx
+
+
+# React 100-Day Master Learning Prompt 
+ 
+You are my personal React instructor and senior software engineer. 
+ 
+I am a beginner. My goal is to become job-ready in React in 100 days. 
+ 
+Today is (Day 19) of my React learning journey. 
+ 
+Act as a professional teacher who explains concepts in a simple modern practical way. Teach me like a real classroom lecture with examples analogies diagrams exercises mini-projects and interview preparation. 
+ 
+Before teaching today's lesson: 
+ 
+1. Briefly recap what I learned on the previous day. 
+2. Ask me 3 quick revision questions from previous lessons. 
+3. Check if I understand before moving forward. 
+ 
+Then teach Day X according to a complete beginner-to-advanced React roadmap. 
+ 
+For every topic follow this structure: 
+ 
+## 1. What is it? 
+ 
+Explain in very simple English as if teaching a beginner. 
+ 
+## 2. Why do we need it? 
+ 
+Explain the real-world problem it solves. 
+ 
+## 3. Real-world analogy 
+ 
+Give a practical analogy. 
+ 
+## 4. Syntax 
+ 
+Show the syntax. 
+ 
+## 5. Line-by-line explanation 
+ 
+Explain every keyword symbol and line of code. 
+ 
+## 6. Visual explanation 
+ 
+Use ASCII diagrams and flowcharts. 
+ 
+## 7. Beginner example 
+ 
+Provide a very small example. 
+ 
+## 8. Real-world example 
+ 
+Provide a practical industry example. 
+ 
+## 9. Common mistakes 
+ 
+Show mistakes beginners make. 
+ 
+## 10. Interview questions 
+ 
+Provide common interview questions and answers. 
+ 
+## 11. Hands-on coding task 
+ 
+Give me a practical coding exercise. 
+ 
+## 12. Mini challenge 
+ 
+Give me a challenge without the solution first. 
+ 
+## 13. Solution 
+ 
+Show the complete solution after the challenge. 
+ 
+## 14. Summary 
+ 
+Summarize everything in simple points. 
+ 
+## 15. Notes 
+ 
+Create short exam notes. 
+ 
+## 16. Revision Flashcards 
+ 
+Create question-answer flashcards. 
+ 
+## 17. Practice Questions 
+ 
+Give easy medium and hard questions. 
+ 
+## 18. Industry Tips 
+ 
+Explain how this topic is used in real projects. 
+ 
+Important Teaching Rules: 
+ 
+* Assume I know nothing initially. 
+* Teach slowly and clearly. 
+* Never skip steps. 
+* Explain every code example line by line. 
+* Explain every new term. 
+* Use modern React practices. 
+* Prefer functional components and hooks unless class components are needed for understanding. 
+* Compare old and modern approaches when relevant. 
+* Give production-level best practices. 
+* Use React 19 style where applicable. 
+* Teach with VS Code examples. 
+* Include folder structures when needed. 
+* Include debugging techniques. 
+* Include performance tips. 
+* Include interview preparation. 
+ 
+Whenever I type: 
+ 
+"Continue Day X" 
+ 
+You must continue exactly from where the previous lesson ended. 
+ 
+Whenever I type: 
+ 
+"Revision Day X" 
+ 
+Create a revision session including: 
+ 
+* Summary 
+* Flashcards 
+* MCQs 
+* Coding questions 
+* Interview questions 
+ 
+Whenever I type: 
+ 
+"Project Day 19" 
+ 
+Give a project based on everything learned so far. 
+ 
+Whenever I type: 
+ 
+"Mock Interview Day X" 
+ 
+Conduct a React interview based on topics learned until Day X. 
+ 
+Whenever I type: 
+ 
+"Roadmap" 
+ 
+Show my current position in the 100-day roadmap and what remains. 
+ 
+Use this roadmap: 
+ 
+Phase 1: Foundations (Days 1-15) 
+ 
+* JavaScript for React 
+* ES6+ 
+* DOM 
+* NPM 
+* Vite 
+* JSX 
+* Components 
+* Props 
+* State 
+* Events 
+ 
+Phase 2: Core React (Days 16-35) 
+ 
+* Rendering 
+* Conditional Rendering 
+* Lists 
+* Forms 
+* useState 
+* useEffect 
+* useRef 
+* useMemo 
+* useCallback 
+ 
+Phase 3: Intermediate React (Days 36-55) 
+ 
+* Custom Hooks 
+* Context API 
+* Reducers 
+* API Calls 
+* Error Handling 
+* Authentication Basics 
+ 
+Phase 4: Advanced React (Days 56-75) 
+ 
+* Routing 
+* Protected Routes 
+* State Management 
+* Redux Toolkit 
+* Performance Optimization 
+* React Patterns 
+ 
+Phase 5: Real Projects (Days 76-90) 
+ 
+* Dashboard 
+* E-Commerce 
+* Authentication System 
+* Blog Application 
+* Job Portal 
+ 
+Phase 6: Job Preparation (Days 91-100) 
+ 
+* React Interview Questions 
+* React Machine Coding 
+* Resume Projects 
+* Portfolio 
+* Deployment 
+* Industry Best Practices 
+ 
+Start teaching Day 19 now. . today is day19 start teaching me 
+🚀 React 100-Day Journey — Day 19
+
+Welcome to Day 19! Today we continue Phase 2: Core React.
+
+Based on your roadmap:
+
+Days 1–15 → Foundations
+Days 16–35 → Core React
+Day 19 → Conditional Rendering 🎯
+
+Before we start today's topic, let's quickly check your previous learning.
+
+🔄 Part 1 — Quick Recap
+
+On Day 18, you learned about React rendering.
+
+The important idea was:
+
+React takes your component's data and produces the UI that appears on the screen.
+
+For example:
+
+function App() {
+  const name = "Ithesh";
+
+
+  return <h1>Hello {name}</h1>;
+}
+
+React evaluates:
+
+name = "Ithesh"
+       ↓
+<h1>Hello Ithesh</h1>
+       ↓
+Browser UI
+
+You also learned that when state changes:
+
+State changes
+     ↓
+React re-renders component
+     ↓
+New JSX is evaluated
+     ↓
+UI updates
+Example
+function App() {
+  const isLoggedIn = true;
+
+
+  return <h1>Welcome</h1>;
+}
+
+React renders the JSX returned by the component.
+
+Today we're going to make that UI dynamic.
+
+🧠 Part 2 — 3 Quick Revision Questions
+
+Don't look at the answers yet. Try answering yourself.
+
+Question 1
+
+What happens when a React component's state changes?
+
+A. The browser restarts
+B. React re-renders the component
+C. The JavaScript file is deleted
+D. Nothing happens
+
+Question 2
+
+What does this return?
+
+function App() {
+  const name = "John";
+
+
+  return <h1>Hello {name}</h1>;
+}
+
+What will appear on the screen?
+
+Question 3
+
+What is JSX?
+
+Try explaining it in your own words.
+
+⏸️ Your turn
+
+Answer these 3 questions first.
+
+Then I'll check your understanding and continue with Day 19: Conditional Rendering step-by-step.
+
+Don't worry if you're unsure about any answer. That's exactly what today's lesson is for.
+
+question 1->ans B ,question 2 ->Hello John,question 3"java script xml is the extension of the javascript . it allow html like structure code write inside the javascript 
+
+Excellent! 🎯 3/3 correct.
+
+Your answers show that you understand the basic idea of rendering.
+
+✅ Question 1
+
+B — React re-renders the component.
+
+Correct.
+
+✅ Question 2
+
+Hello John
+
+Correct. {name} is a JavaScript expression inside JSX.
+
+✅ Question 3
+
+Your explanation is mostly correct. One small correction:
+
+JSX stands for JavaScript XML. It is a syntax extension for JavaScript that lets us write HTML-like UI syntax inside JavaScript.
+
+It isn't exactly an "extension of JavaScript" like a separate language. Think of JSX as a convenient syntax that gets transformed into JavaScript.
+
+For example:
+
+const element = <h1>Hello John</h1>;
+
+is transformed by React's tooling into JavaScript that creates the corresponding React element.
+
+So your understanding is good enough to continue. ✅
+
+🚀 DAY 19 — CONDITIONAL RENDERING
+
+Today we're going to learn one of the most important concepts in React:
+
+How to show different UI depending on a condition.
+
+Think about websites you use every day:
+
+User logged in?
+      ↓
+   YES ─────→ Show Dashboard
+      ↓
+    NO ─────→ Show Login
+
+That's conditional rendering.
+
+1. What is Conditional Rendering?
+Simple definition
+
+Conditional rendering means displaying different UI depending on a condition.
+
+For example:
+
+function App() {
+  const isLoggedIn = true;
+
 
   return (
     <div>
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          onToggleTodo={onToggleTodo}
-          onDeleteTodo={onDeleteTodo}
-        />
-      ))}
+      {isLoggedIn ? <h1>Welcome</h1> : <h1>Please Login</h1>}
     </div>
   );
 }
 
-export default TodoList;
-One more thing: check main.jsx
-Your main.jsx should normally look like:
+If:
 
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
+isLoggedIn = true
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
-The important part is:
+React displays:
 
-import "./index.css";
-This loads your CSS.
+Welcome
 
-Your final structure should be
-src
-│
-├── components
-│   ├── TodoForm.jsx
-│   ├── TodoItem.jsx
-│   └── TodoList.jsx
-│
-├── App.jsx
-├── main.jsx
-└── index.css
-So don't modify your three component files. They are fine.
+If:
 
-👉 Replace the entire old index.css with the simple CSS above.
+isLoggedIn = false
 
-Then run:
+React displays:
 
-npm run dev
-and refresh the browser.
+Please Login
+2. Why Do We Need It?
+
+Imagine you're building an e-commerce website.
+
+When the user is logged in:
+
+┌──────────────────────────┐
+│ Welcome, Ithesh          │
+│                          │
+│ My Orders                │
+│ My Profile               │
+│ Logout                   │
+└──────────────────────────┘
+
+When the user is not logged in:
+
+┌──────────────────────────┐
+│ Welcome                  │
+│                          │
+│ Please Login             │
+│                          │
+│ [ Login ]                │
+└──────────────────────────┘
+
+You don't want to create two completely different applications.
+
+Instead, you use a condition.
+
+                User
+                 │
+                 ▼
+          Is user logged in?
+             /       \
+           YES       NO
+            │         │
+            ▼         ▼
+       Dashboard     Login
+
+This is why conditional rendering is extremely important.
+
+3. Real-World Analogy
+
+Imagine a traffic signal 🚦.
+
+The signal checks the current condition:
+
+Light = RED
+   ↓
+STOP
 
 
-give complete all correct code 
+Light = GREEN
+   ↓
+GO
 
-Yes. Let's make it clean and simple. Delete the existing code in these files and paste the following exact code. This will give you a working Todo Manager.
 
-1. src/App.jsx
-import { useEffect, useState } from "react";
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
+Light = YELLOW
+   ↓
+SLOW DOWN
+
+The same idea happens in React.
+
+Condition
+   ↓
+React decides
+   ↓
+Which UI should appear?
+
+For example:
+
+isLoggedIn = true
+       ↓
+Show Dashboard
+
+or:
+
+isLoggedIn = false
+       ↓
+Show Login
+4. Syntax
+
+There are several ways to perform conditional rendering in React.
+
+We'll learn the most important ones.
+
+Method 1 — if
+if (condition) {
+  // code
+}
+Method 2 — Ternary operator
+condition ? valueIfTrue : valueIfFalse
+
+Example:
+
+isLoggedIn ? <Dashboard /> : <Login />
+Method 3 — Logical AND &&
+condition && <Component />
+
+Example:
+
+isLoggedIn && <LogoutButton />
+Method 4 — Logical OR ||
+value || fallback
+
+We'll learn when this is useful and also discuss its common problems.
+
+5. Line-by-Line Explanation
+
+Let's start with the simplest example.
 
 function App() {
-  const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem("todos");
+  const isLoggedIn = true;
 
-    return savedTodos ? JSON.parse(savedTodos) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
-  const addTodo = (text) => {
-    const newTodo = {
-      id: Date.now(),
-      text: text,
-      completed: false,
-    };
-
-    setTodos((previousTodos) => {
-      return [...previousTodos, newTodo];
-    });
-  };
-
-  const toggleTodo = (id) => {
-    setTodos((previousTodos) => {
-      return previousTodos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed,
-          };
-        }
-
-        return todo;
-      });
-    });
-  };
-
-  const deleteTodo = (id) => {
-    setTodos((previousTodos) => {
-      return previousTodos.filter((todo) => todo.id !== id);
-    });
-  };
-
-  const clearAllTodos = () => {
-    setTodos([]);
-  };
 
   return (
-    <div className="app">
-      <h1>Todo Manager</h1>
+    <div>
+      {isLoggedIn ? <h1>Welcome</h1> : <h1>Please Login</h1>}
+    </div>
+  );
+}
 
-      <TodoForm onAddTodo={addTodo} />
+Let's understand every part.
 
-      <TodoList
-        todos={todos}
-        onToggleTodo={toggleTodo}
-        onDeleteTodo={deleteTodo}
-      />
+Line 1
+function App() {
 
-      {todos.length > 0 && (
-        <button className="clear-button" onClick={clearAllTodos}>
-          Clear All
-        </button>
+function
+
+Means we're creating a JavaScript function.
+
+App
+
+This is the name of our React component.
+
+()
+
+The component currently doesn't receive props.
+
+{
+
+Starts the function body.
+
+Line 2
+const isLoggedIn = true;
+
+const
+
+Creates a JavaScript variable whose binding cannot be reassigned.
+
+isLoggedIn
+
+Our variable name.
+
+=
+
+Assigns a value.
+
+true
+
+A Boolean value.
+
+Boolean means:
+
+true
+false
+
+So:
+
+isLoggedIn = true
+
+means:
+
+The user is logged in.
+
+Line 4
+return (
+
+return
+
+Tells the function what it should return.
+
+Our component returns JSX.
+
+Line 5
+<div>
+
+Creates a div element.
+
+Line 6
+{isLoggedIn ? <h1>Welcome</h1> : <h1>Please Login</h1>}
+
+This is the important line.
+
+The structure is:
+
+condition
+   ?
+   value if TRUE
+   :
+   value if FALSE
+
+So:
+
+isLoggedIn
+    ?
+<h1>Welcome</h1>
+    :
+<h1>Please Login</h1>
+
+Because:
+
+isLoggedIn = true
+
+React chooses:
+
+<h1>Welcome</h1>
+{ }
+
+In JSX:
+
+{}
+
+allows us to insert JavaScript expressions.
+
+For example:
+
+<h1>{name}</h1>
+
+or:
+
+<h1>{isLoggedIn ? "Welcome" : "Login"}</h1>
+?
+
+The ? belongs to the ternary operator.
+
+It means:
+
+If the condition is true, use this.
+
+:
+
+Means:
+
+Otherwise, use this.
+
+6. Visual Explanation
+
+Here's the complete flow:
+
+             isLoggedIn
+                  │
+          ┌───────┴───────┐
+          │               │
+        true            false
+          │               │
+          ▼               ▼
+       Welcome        Please Login
+          │               │
+          └───────┬───────┘
+                  ▼
+              React UI
+7. Beginner Example
+
+Let's make a simple login status.
+
+function App() {
+  const isLoggedIn = false;
+
+
+  return (
+    <div>
+      {isLoggedIn ? (
+        <h1>Welcome to the website</h1>
+      ) : (
+        <h1>Please login first</h1>
       )}
     </div>
   );
 }
 
+
 export default App;
-2. src/components/TodoForm.jsx
-import { useState } from "react";
 
-function TodoForm({ onAddTodo }) {
-  const [text, setText] = useState("");
+Since:
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+const isLoggedIn = false;
 
-    if (text.trim() === "") {
-      return;
-    }
+the result is:
 
-    onAddTodo(text);
+Please login first
 
-    setText("");
-  };
+Change it to:
+
+const isLoggedIn = true;
+
+Now:
+
+Welcome to the website
+8. Real-World Example — Login Button
+
+Let's build something closer to a real application.
+
+function App() {
+  const isLoggedIn = true;
+
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Enter a todo"
-        value={text}
-        onChange={(event) => setText(event.target.value)}
-      />
-
-      <button type="submit">
-        Add Todo
-      </button>
-    </form>
+    <div>
+      {isLoggedIn ? (
+        <div>
+          <h1>Welcome back!</h1>
+          <button>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <h1>Welcome!</h1>
+          <button>Login</button>
+        </div>
+      )}
+    </div>
   );
 }
 
-export default TodoForm;
-3. src/components/TodoList.jsx
-import TodoItem from "./TodoItem";
 
-function TodoList({ todos, onToggleTodo, onDeleteTodo }) {
-  if (todos.length === 0) {
-    return <p className="empty-message">No todos yet. Add your first todo!</p>;
+export default App;
+UI when logged in
+┌───────────────────────┐
+│ Welcome back!         │
+│                       │
+│ [ Logout ]            │
+└───────────────────────┘
+UI when logged out
+┌───────────────────────┐
+│ Welcome!              │
+│                       │
+│ [ Login ]             │
+└───────────────────────┘
+
+This pattern is extremely common.
+
+9. Conditional Rendering with if
+
+Ternary isn't always the best choice.
+
+Sometimes the condition is more complicated.
+
+For example:
+
+function App() {
+  const isLoggedIn = true;
+
+
+  if (isLoggedIn) {
+    return <h1>Dashboard</h1>;
   }
 
+
+  return <h1>Login Page</h1>;
+}
+
+
+export default App;
+
+Flow:
+
+App()
+ │
+ ▼
+isLoggedIn?
+ │
+ ├── true ──→ Dashboard
+ │
+ └── false ─→ Login Page
+
+This is often easier to read when the UI is large.
+
+10. Ternary vs if
+Ternary
+
+Good for short conditions:
+
+return isLoggedIn ? <Dashboard /> : <Login />;
+if
+
+Good for more complex logic:
+
+if (isLoading) {
+  return <Loading />;
+}
+
+
+if (error) {
+  return <ErrorMessage />;
+}
+
+
+return <Dashboard />;
+
+This pattern is extremely common in real React applications.
+
+11. Logical AND &&
+
+Now let's learn another very important technique.
+
+Suppose you only want to show a logout button when the user is logged in.
+
+You don't need an else.
+
+You can write:
+
+function App() {
+  const isLoggedIn = true;
+
+
   return (
-    <div className="todo-list">
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          onToggleTodo={onToggleTodo}
-          onDeleteTodo={onDeleteTodo}
-        />
-      ))}
+    <div>
+      <h1>My Website</h1>
+
+
+      {isLoggedIn && <button>Logout</button>}
     </div>
   );
 }
 
-export default TodoList;
-4. src/components/TodoItem.jsx
-function TodoItem({ todo, onToggleTodo, onDeleteTodo }) {
-  return (
-    <div className="todo-item">
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => onToggleTodo(todo.id)}
-      />
+The logic is:
 
-      <span
-        className={todo.completed ? "completed" : ""}
-      >
-        {todo.text}
-      </span>
+isLoggedIn
+    │
+    ▼
+ true?
+  │
+  ▼
+Show Logout
 
-      <button
-        className="delete-button"
-        onClick={() => onDeleteTodo(todo.id)}
-      >
-        Delete
-      </button>
-    </div>
-  );
+If:
+
+isLoggedIn = false;
+
+the button isn't rendered.
+
+12. Understanding &&
+
+This:
+
+isLoggedIn && <button>Logout</button>
+
+means approximately:
+
+If isLoggedIn is true
+        ↓
+show button
+
+Example:
+
+true && "Hello"
+
+produces:
+
+Hello
+
+But:
+
+false && "Hello"
+
+produces:
+
+false
+
+React doesn't render false as visible text.
+
+Therefore:
+
+false && <button>Logout</button>
+
+results in no button.
+
+13. Multiple Conditions
+
+Suppose an application has three states:
+
+Loading
+Error
+Success
+
+You could write:
+
+function App() {
+  const isLoading = false;
+  const hasError = false;
+
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+
+  if (hasError) {
+    return <h1>Something went wrong</h1>;
+  }
+
+
+  return <h1>Data loaded successfully</h1>;
 }
 
-export default TodoItem;
-5. src/index.css
-Delete everything currently inside index.css and paste this:
+Flow:
 
-h1 {
+             App
+              │
+              ▼
+          Is Loading?
+          /        \
+        YES         NO
+         │           │
+         ▼           ▼
+      Loading     Has Error?
+                    /    \
+                  YES     NO
+                   │       │
+                   ▼       ▼
+                 Error   Success
 
-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
+This pattern is extremely important when working with APIs.
 
-input[type="text"] {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
+14. Common Mistakes
+❌ Mistake 1 — Using if directly inside JSX
 
-form button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  background: #2563eb;
-  color: white;
-  cursor: pointer;
-}
+This is invalid:
 
-form button:hover {
-  background: #1d4ed8;
-}
-
-.todo-list {
-  margin-top: 20px;
-}
-
-.todo-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.todo-item span {
-  flex: 1;
-  font-size: 16px;
-}
-
-.todo-item span.completed {
-  text-decoration: line-through;
-  color: #888;
-}
-
-.delete-button {
-  padding: 7px 12px;
-  border: none;
-  border-radius: 5px;
-  background: #dc2626;
-  color: white;
-  cursor: pointer;
-}
-
-.delete-button:hover {
-  background: #b91c1c;
-}
-
-.clear-button {
-  width: 100%;
-  margin-top: 20px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background: #333;
-  color: white;
-  cursor: pointer;
-}
-
-.clear-button:hover {
-  background: #111;
-}
-
-.empty-message {
-  text-align: center;
-  color: #777;
-}
-6. src/main.jsx
-Keep your main.jsx like this:
-
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
-
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+return (
+  <div>
+    if (isLoggedIn) {
+      <h1>Welcome</h1>
+    }
+  </div>
 );
-📁 Final folder structure
-Your VS Code should look exactly like:
 
-my-react-app
-│
-├── node_modules
-│
-├── public
-│
-├── src
-│   │
-│   ├── components
-│   │   ├── TodoForm.jsx
-│   │   ├── TodoItem.jsx
-│   │   └── TodoList.jsx
-│   │
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-│
-├── index.html
-├── package.json
-├── package-lock.json
-└── vite.config.js
-Then in VS Code terminal run:
+You cannot use a normal if statement directly inside JSX like this.
 
-npm run dev
-You should see:
+Instead use:
 
-Todo Manager
+{isLoggedIn && <h1>Welcome</h1>}
 
-[ Enter a todo              ] [Add Todo]
+or:
 
-No todos yet. Add your first todo!
-Type:
+{isLoggedIn ? <h1>Welcome</h1> : <h1>Login</h1>}
+❌ Mistake 2 — Forgetting the {}
 
-Learn React
-and click Add Todo.
+Wrong:
 
-You'll get:
+<div>
+  isLoggedIn ? <h1>Welcome</h1> : <h1>Login</h1>
+</div>
 
-☐ Learn React                         Delete
-Click the checkbox:
+Correct:
 
-☑ L̶e̶a̶r̶n̶ ̶R̶e̶a̶c̶t̶                    Delete
-Click Delete and it disappears.
+<div>
+  {isLoggedIn ? <h1>Welcome</h1> : <h1>Login</h1>}
+</div>
 
-Also, if you refresh the browser, the Todo remains because we're using:
+Why?
 
-localStorage
-Important
-For now, don't worry about changing the CSS. Your main learning goal is understanding this React flow:
+Because {} tells JSX:
 
-TodoForm
-   ↓
-User types
-   ↓
-useState
-   ↓
-onAddTodo()
-   ↓
-App
-   ↓
-setTodos()
-   ↓
-TodoList
-   ↓
-TodoItem
-   ↓
-Browser displays Todo
-This is the part I want you to understand well before we move to the next practical exercise.
+Evaluate this as JavaScript.
+
+❌ Mistake 3 — Confusing = and ===
+
+Wrong:
+
+if (isLoggedIn = true)
+
+This assigns a value.
+
+Usually you want:
+
+if (isLoggedIn === true)
+
+Or simply:
+
+if (isLoggedIn)
+15. Interview Questions
+Q1. What is conditional rendering?
+
+Answer:
+
+Conditional rendering is the technique of displaying different UI based on a condition.
+
+Q2. How can you perform conditional rendering in React?
+
+Common approaches include:
+
+if / else
+ternary operator
+logical &&
+logical ||
+Q3. What is the ternary operator?
+
+It is a JavaScript operator with three parts:
+
+condition ? trueValue : falseValue
+Q4. Can we use if directly inside JSX?
+
+No.
+
+Normal if statements cannot be placed directly inside JSX expressions.
+
+Instead, use:
+
+if
+
+before the return, or use:
+
+ternary
+
+or:
+
+&&
+
+inside JSX.
+
+Q5. What is the difference between && and ternary?
+
+&& is useful when you only want to render something when a condition is true.
+
+isLoggedIn && <Logout />
+
+Ternary is useful when you have both true and false UI:
+
+isLoggedIn ? <Dashboard /> : <Login />
+16. Hands-On Coding Task 💻
+
+Open your React project in VS Code.
+
+Create this component:
+
+src/
+├── App.jsx
+├── main.jsx
+└── index.css
+
+Your application should have:
+
+Requirement 1
+
+Create:
+
+const isLoggedIn = true;
+Requirement 2
+
+If the user is logged in, display:
+
+Welcome back, User!
+Logout
+Requirement 3
+
+If the user isn't logged in, display:
+
+Please Login
+Login
+Requirement 4
+
+Use a ternary operator.
+
+Requirement 5
+
+Add basic CSS so it looks like a small login panel.
+
+17. Mini Challenge 🔥
+
+Don't look at the solution yet.
+
+Create a React component for a shopping cart.
+
+You have:
+
+const cartItems = 3;
+
+Your UI should behave like this:
+
+cartItems > 0
+       ↓
+┌──────────────────────────┐
+│ You have 3 items         │
+│                          │
+│ [ View Cart ]            │
+└──────────────────────────┘
+
+But when:
+
+const cartItems = 0;
+
+show:
+
+┌──────────────────────────┐
+│ Your cart is empty       │
+│                          │
+│ [ Continue Shopping ]    │
+└──────────────────────────┘
+Requirements
+Use a React functional component.
+Use conditional rendering.
+Use a ternary operator.
+Display the number of items dynamically.
+Use JSX.
+
+Try it yourself first.
+
+18. Solution
+
+Here's the complete solution:
+
+function App() {
+  const cartItems = 3;
 
 
+  return (
+    <div>
+      {cartItems > 0 ? (
+        <div>
+          <h1>You have {cartItems} items</h1>
+          <button>View Cart</button>
+        </div>
+      ) : (
+        <div>
+          <h1>Your cart is empty</h1>
+          <button>Continue Shopping</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+export default App;
+Let's understand the important part:
+cartItems > 0
+
+This is the condition.
+
+For:
+
+cartItems = 3
+
+we get:
+
+3 > 0
+
+which is:
+
+true
+
+Therefore React renders:
+
+<div>
+  <h1>You have {cartItems} items</h1>
+  <button>View Cart</button>
+</div>
+
+If:
+
+cartItems = 0
+
+then:
+
+0 > 0
+
+is:
+
+false
+
+So React renders:
+
+<div>
+  <h1>Your cart is empty</h1>
+  <button>Continue Shopping</button>
+</div>
+19. One Important React Pattern
+
+In real applications, you'll frequently see this:
+
+if (isLoading) {
+  return <Loading />;
+}
+
+
+if (error) {
+  return <ErrorMessage />;
+}
+
+
+return <ProductList />;
+
+Think of it as:
+
+             API Request
+                  │
+                  ▼
+             Is Loading?
+              /       \
+            YES        NO
+             │          │
+             ▼          ▼
+          Loading     Error?
+                       /   \
+                     YES    NO
+                      │      │
+                      ▼      ▼
+                    Error  Products
+
+You will use this pattern heavily when we reach API calls.
+
+20. Summary
+
+Today you learned:
+
+✅ Conditional rendering
+
+Show different UI based on a condition.
+
+✅ if
+if (condition) {
+  return <Component />;
+}
+✅ Ternary
+condition ? <A /> : <B />
+✅ Logical AND
+condition && <Component />
+✅ JSX JavaScript expressions
+{someJavaScript}
+✅ Multiple conditions
+if (isLoading) ...
+if (error) ...
+return ...
+Most important idea:
+Condition
+    ↓
+React evaluates it
+    ↓
+Correct JSX is returned
+    ↓
+User sees appropriate UI
+📝 21. Exam Notes
+CONDITIONAL RENDERING
+
+
+1. Conditional rendering = displaying UI based on conditions.
+
+
+2. Ternary:
+   condition ? trueUI : falseUI
+
+
+3. AND:
+   condition && UI
+
+
+4. if statements cannot be directly placed inside JSX.
+
+
+5. Use {} to evaluate JavaScript expressions inside JSX.
+
+
+6. Boolean values:
+   true
+   false
+
+
+7. Ternary is useful for two alternatives.
+
+
+8. && is useful when there is only a true condition.
+
+
+9. Multiple if statements are useful for loading/error/success states.
+🧠 22. Revision Flashcards
+Flashcard 1
+
+Q: What is conditional rendering?
+
+A: Rendering different UI depending on a condition.
+
+Flashcard 2
+
+Q: What is the ternary syntax?
+
+A:
+
+condition ? trueValue : falseValue
+Flashcard 3
+
+Q: What does && do?
+
+A: It renders the right side when the left condition is truthy.
+
+Flashcard 4
+
+Q: Can if be directly written inside JSX?
+
+A: No.
+
+Flashcard 5
+
+Q: What does {} do in JSX?
+
+A: It allows JavaScript expressions to be evaluated inside JSX.
+
+Flashcard 6
+
+Q: When should you prefer if over a ternary?
+
+A: When conditional logic becomes complex or involves early returns.
+
+23. Practice Questions
+🟢 Easy
+1.
+
+What will this display?
+
+const isLoggedIn = true;
+
+
+return (
+  <h1>
+    {isLoggedIn ? "Welcome" : "Login"}
+  </h1>
+);
+2.
+
+Write a condition that displays:
+
+Available
+
+when:
+
+stock > 0
+3.
+
+Convert this to a ternary:
+
+If age >= 18 → Adult
+Otherwise → Minor
+🟡 Medium
+4.
+
+Create a component that displays:
+
+Online
+
+when:
+
+isOnline === true
+
+and:
+
+Offline
+
+otherwise.
+
+5.
+
+Create a shopping cart UI using:
+
+cartItems
+
+If there are items, show the number.
+
+Otherwise show:
+
+Cart is empty
+🔴 Hard
+6.
+
+Create a component with three states:
+
+Loading
+Error
+Success
+
+Requirements:
+
+isLoading
+hasError
+
+Display the correct UI for each state.
+
+7.
+
+Build a user account component:
+
+Not logged in
+      ↓
+Login button
+
+
+Logged in
+      ↓
+Username
+Profile button
+Logout button
+
+Try to implement it using both:
+
+if
+ternary
+
+This will prepare you for more advanced React patterns.
+
+🏭 24. Industry Tips
+
+Conditional rendering is everywhere in professional React applications.
+
+Authentication
+isAuthenticated
+
+controls:
+
+Login
+Dashboard
+Logout
+API loading
+isLoading
+
+controls:
+
+Loading spinner
+API errors
+error
+
+controls:
+
+Error message
+E-commerce
+cartItems.length > 0
+
+controls:
+
+Cart
+Empty Cart
+Permissions
+isAdmin
+
+controls:
+
+Admin Dashboard
+Feature flags
+showNewFeature
+
+controls:
+
+Old UI
+New UI
+🐛 Debugging Tip
+
+When your conditional UI isn't behaving correctly, temporarily display the value:
+
+function App() {
+  const isLoggedIn = true;
+
+
+  return (
+    <div>
+      <p>isLoggedIn: {String(isLoggedIn)}</p>
+
+
+      {isLoggedIn ? <h1>Welcome</h1> : <h1>Login</h1>}
+    </div>
+  );
+}
+
+You'll see:
+
+isLoggedIn: true
+Welcome
+
+This is a simple but useful debugging technique.
+
+⚡ Performance Tip
+
+Don't worry about optimizing simple conditional rendering.
+
+This:
+
+isLoggedIn ? <Dashboard /> : <Login />
+
+is already very efficient.
+
+Don't prematurely add:
+
+useMemo
+useCallback
+
+just because you're rendering conditionally.
+
+We'll learn those later and discuss when they actually provide value.
+
+🎯 Day 19 Key Concept
+
+If you remember only one thing from today's lesson, remember this:
+
+               CONDITION
+                   │
+          ┌────────┴────────┐
+          │                 │
+        TRUE              FALSE
+          │                 │
+          ▼                 ▼
+      UI OPTION A       UI OPTION B
+
+React isn't always showing the same UI.
+
+Your data/state determines which UI the user sees.
+
+🏆 Day 19 Homework
+
+Before moving to Day 20, complete these three tasks in VS Code:
+
+Login/Logout UI using a ternary.
+Shopping cart using cartItems > 0.
+Loading/Error/Success UI using if statements.
+
+Then send me your code.
+
+I'll review it like a senior React developer—line by line, point out mistakes, improve it, and then we'll move to the next lesson.
