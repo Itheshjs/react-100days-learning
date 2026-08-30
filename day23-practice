@@ -1,0 +1,15 @@
+useEffect let react component to perform the sideeffect 
+
+
+useEffect is react component is used to perform the  side effectt on component 
+
+
+Common things you do inside useEffect():
+
+Call a backend API
+Fetch data from a server
+Start a timer
+Add/remove event listeners
+Work with browser APIs
+Subscribe/unsubscribe to something
+Update something outside React
