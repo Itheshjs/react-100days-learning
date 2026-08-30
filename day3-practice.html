@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="name-text">
+        <input type="text" id="nameInput" placeholder="enter the name">
+        <button onclick="addName()">add</button>
+    </div>
+
+    <div id="displayArea">
+
+    </div>
+</body>
+
+<script>
+    function addName(){
+        let input = document.getElementById("nameInput");
+        let display = document.getElementById("displayArea");
+
+        let name = input.value.trim();
+
+        if (name=== ""){
+            alert("please enter the value");
+            return;
+        }
+
+        let newName = document.createElement("div");
+
+        newName.classList.add("name-item");
+
+
+        let nameText = document.createElement("span");
+        nameText.textContent=name;
+
+        let editButton = document.createElement("button");
+        editButton.textContent="Edit"
+
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent=("delete")
+
+
+        newName.appendChild(nameText);
+        newName.appendChild(editButton);
+        newName.appendChild(deleteBtn);
+
+
+        deleteBtn.onclick=function (){
+            newName.remove();
+        }
+
+        editButton.onclick =  function(){
+
+            let editInput=document.createElement("input");
+            editInput.type="text";
+
+            editInput.value=nameText.textContent;
+
+            let saveButton = document.createElement("button");
+            saveButton.textContent="save";
+
+            let cancelButton = document.createElement("button");
+            cancelButton.textContent="cancel";
+
+            newName.innerHTML ="";
+
+            newName.appendChild(editInput)
+            newName.appendChild(saveButton)
+            newName.appendChild(cancelButton)
+
+            
+           saveButton.onclick = function(){
+            let updatedName=editInput.value.trim();
+
+            if(updatedName === ""){
+                alert("empty please enter the value");
+                return;
+            }
+
+            nameText.textContent=updatedName;
+
+            newName.innerHTML="";
+
+            newName.appendChild(nameText);
+            newName.appendChild(editButton);
+            newName.appendChild(deleteBtn);
+
+           }; 
+
+           cancelButton.onclick = function(){
+            newName.innerHTML="";
+
+            newName.appendChild(nameText);
+            newName.appendChild(editButton);
+            newName.appendChild(deleteBtn);
+           };
+
+
+        };
+
+        display.appendChild(newName);
+
+        input.value = "";
+
+        input.focus();
+
+
+    };
+</script>
+</html>
