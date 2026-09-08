@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="number-enter">
+        <h3>please enter the number : </h3>
+        <input type="number" id="numbervalue" placeholder="enter the number">
+        <button onclick="cheak()">Cheak</button>
+    </div>
+
+    <div class="displayara" id="display"></div>
+</body>
+
+<script>
+    function cheak(){
+        let input = document.getElementById("numbervalue");
+        let display = document.getElementById("display");
+
+        let result = input.value;
+
+        for (let i=0;i<=result;i++){
+            display.innerText += i +"\n";
+        };
+    };
+</script>
+</html>
