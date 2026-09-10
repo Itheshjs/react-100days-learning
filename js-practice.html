@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="js-practice-basic">
+</head>
+<body>
+    
+</body>
+<script>
+    // let firstname="ithesh";
+    // let age=22;
+
+    // console.log(`mu name is ${firstname} and my age is ${age}`);
+
+
+    // let price=399;
+    // let quantity=2;
+
+    // let total=price*quantity;
+
+    // console.log(total);
+
+    //backticks allowto pass the variable inside the text //
+
+
+//     let age = 16;
+
+// let isAdult = age >= 18;
+
+// if(isAdult){
+//     console.log("you can enter.");
+// }else{
+//     console.log("your minor you can't enter");
+// }
+
+
+// undefined comes when variable exist but it doesn;t contain any value then it show undefined 
+
+// let name;
+
+// console.log(name);
+
+
+
+
+// Null
+
+// i intensially want this null
+
+// let selectProduct=null;
+// console,console.log(selectProduct);
+
+
+// object
+
+// an object store the related information using the key value pair 
+
+
+// let student ={
+//     name:"Ithesh",
+//     age:25,
+//     city:"Banglore"
+// };
+
+// console.log(student)
+
+
+// let fruits = ["apple","banana","Mango"];
+
+// console.log(fruits[1]);
+// console.log(typeof fruits);
+
+
+
+// have different kind of equality
+
+// == ===$
+// ==: lose equality what it doest it convert befire comparison
+// console.log(5 == "5");
+
+
+//strickt equality
+
+//console.log(5 === "5");
+//
+
+datatypes and operator in js   understand me completely and and give practical tak which helpfull
+
+Absolutely. Let’s learn JavaScript Data Types + Operators from the basics, but in a practical way so you understand why and when to use them—not just memorize them.
+
+1. What is a Data Type in JavaScript?
+
+A data type tells JavaScript what kind of value you are storing.
+
+For example:
+
+let name = "Ithesh";
+let age = 25;
+let isStudent = true;
+
+Here:
+
+"Ithesh" → String
+25 → Number
+true → Boolean
+
+Think of it like this:
+
+Data
+ │
+ ├── Text       → String
+ ├── Number     → Number
+ ├── Yes/No     → Boolean
+ ├── Nothing    → null
+ ├── Not given  → undefined
+ ├── Collection → Array
+ └── Object     → Object
+2. String
+
+A String is text.
+
+let name = "Ithesh";
+let city = "Bangalore";
+let message = "Hello World";
+
+You can use:
+
+"Hello"
+'Hello'
+`Hello`
+Practical example
+let firstName = "Ithesh";
+let lastName = "Kumar";
+
+console.log(firstName + " " + lastName);
+
+Output:
+
+Ithesh Kumar
+Modern way: Template literals
+let name = "Ithesh";
+let age = 25;
+
+console.log(`My name is ${name} and I am ${age} years old.`);
+
+Output:
+
+My name is Ithesh and I am 25 years old.
+
+This is extremely useful when creating dynamic websites.
+
+3. Number
+
+JavaScript uses Number for integers and decimal numbers.
+
+let age = 25;
+let price = 399;
+let percentage = 85.5;
+let temperature = 28.6;
+
+You can perform calculations:
+
+let price = 399;
+let quantity = 2;
+
+let total = price * quantity;
+
+console.log(total);
+
+Output:
+
+798
+Practical use
+
+Shopping cart:
+
+let productPrice = 500;
+let quantity = 3;
+
+let total = productPrice * quantity;
+
+console.log(`Total: ₹${total}`);
+4. Boolean
+
+Boolean has only two values:
+
+true
+false
+
+Example:
+
+let isLoggedIn = true;
+let isAdmin = false;
+
+Boolean is extremely important for conditions.
+
+let age = 20;
+
+let isAdult = age >= 18;
+
+console.log(isAdult);
+
+Output:
+
+true
+
+You can then use it:
+
+if (isAdult) {
+    console.log("You can enter.");
+}
+5. Undefined
+
+undefined means:
+
+A variable exists, but currently it has no value.
+
+Example:
+
+let name;
+
+console.log(name);
+
+Output:
+
+undefined
+
+Another example:
+
+let student = {
+    name: "Ithesh"
+};
+
+console.log(student.age);
+
+There is no age property, so:
+
+undefined
+6. Null
+
+null means:
+
+I intentionally want this value to be empty.
+
+Example:
+
+let selectedProduct = null;
+
+console.log(selectedProduct);
+
+Output:
+
+null
+
+Difference:
+
+let a;
+let b = null;
+
+Think:
+
+undefined → value has not been provided
+
+null      → intentionally empty
+7. Object
+
+An object stores related information using key-value pairs.
+
+let student = {
+    name: "Ithesh",
+    age: 25,
+    city: "Bangalore"
+};
+
+You can access values:
+
+console.log(student.name);
+console.log(student.age);
+console.log(student.city);
+
+Output:
+
+Ithesh
+25
+Bangalore
+Practical example
+
+Imagine a product:
+
+let product = {
+    name: "Cold Pressed Groundnut Oil",
+    price: 399,
+    quantity: 2,
+    available: true
+};
+
+Now:
+
+console.log(product.name);
+console.log(product.price);
+
+Objects are very important in real JavaScript development.
+
+8. Array
+
+An array stores multiple values.
+
+let fruits = ["Apple", "Banana", "Mango"];
+
+Each item has an index.
+
+Apple   → 0
+Banana  → 1
+Mango   → 2
+
+So:
+
+console.log(fruits[0]);
+console.log(fruits[1]);
+console.log(fruits[2]);
+
+Output:
+
+Apple
+Banana
+Mango
+Practical example
+let products = [
+    "Groundnut Oil",
+    "Coconut Oil",
+    "Sesame Oil",
+    "Sunflower Oil"
+];
+
+console.log(products);
+
+Arrays are used everywhere:
+
+product lists
+student lists
+employee lists
+menu items
+search results
+API data
+9. How to check a Data Type
+
+Use:
+
+typeof
+
+Example:
+
+let name = "Ithesh";
+let age = 25;
+let student = true;
+
+console.log(typeof name);
+console.log(typeof age);
+console.log(typeof student);
+
+Output:
+
+string
+number
+boolean
+
+Try:
+
+console.log(typeof undefined);
+console.log(typeof null);
+
+You may notice something surprising:
+
+undefined
+object
+
+typeof null returning "object" is a historical JavaScript quirk.
+
+10. Now Operators
+
+Operators are symbols that perform operations on values.
+
+For example:
+
+let a = 10;
+let b = 5;
+
+console.log(a + b);
+
++ is an operator.
+
+11. Arithmetic Operators
+
+These are used for calculations.
+
+Operator	Meaning
++	Addition
+-	Subtraction
+*	Multiplication
+/	Division
+%	Remainder
+**	Power
+
+Example:
+
+let a = 10;
+let b = 3;
+
+console.log(a + b);  // 13
+console.log(a - b);  // 7
+console.log(a * b);  // 30
+console.log(a / b);  // 3.333...
+console.log(a % b);  // 1
+console.log(a ** b); // 1000
+Understand % carefully
+console.log(10 % 3);
+
+Output:
+
+1
+
+Because:
+
+10 ÷ 3
+
+3 × 3 = 9
+
+remainder = 1
+
+Very useful for checking even and odd numbers:
+
+let number = 10;
+
+if (number % 2 === 0) {
+    console.log("Even");
+} else {
+    console.log("Odd");
+}
+12. Assignment Operators
+
+The basic assignment operator is:
+
+=
+
+Example:
+
+let age = 25;
+
+It means:
+
+Put 25 into age.
+
+Not:
+
+age is equal to 25 mathematically.
+
+You also have:
+
++=
+-=
+*=
+/=
+%=
+
+Example:
+
+let score = 10;
+
+score += 5;
+
+console.log(score);
+
+Output:
+
+15
+
+This:
+
+score += 5;
+
+means:
+
+score = score + 5;
+
+Similarly:
+
+score -= 3;
+
+means:
+
+score = score - 3;
+13. Comparison Operators
+
+Comparison operators compare values.
+
+>
+<
+>=
+<=
+==
+===
+!=
+!==
+
+Example:
+
+let age = 25;
+
+console.log(age > 18);
+
+Output:
+
+true
+
+Another:
+
+console.log(age < 18);
+
+Output:
+
+false
+14. == vs ===
+
+This is very important.
+
+==
+
+Loose equality.
+
+console.log(5 == "5");
+
+Output:
+
+true
+
+JavaScript converts the values before comparison.
+
+===
+
+Strict equality.
+
+console.log(5 === "5");
+
+Output:
+
+false
+
+Why?
+
+5     → number
+"5"   → string
+
+They are different types.
+
+Best practice
+
+In modern JavaScript, normally prefer:
+
+===
+
+and:
+
+!==
+
+instead of:
+
+==
+!=
+15. Logical Operators
+
+These become extremely important with if.
+
+There are three main ones:
+
+&&
+||
+!
+AND &&
+
+Means:
+
+Both conditions must be true.
+
+Example:
+
+let age = 25;
+let hasID = true;
+
+if (age >= 18 && hasID === true) {
+    console.log("Entry allowed");
+}
+
+Both need to be true.
+
+Age >= 18 → true
+Has ID    → true
+
+true && true → true
+16. OR ||
+
+Means:
+
+At least one condition should be true.
+
+let hasCash = false;
+let hasCard = true;
+
+if (hasCash || hasCard) {
+    console.log("Payment possible");
+}
+
+Here:
+
+hasCash → false
+hasCard → true
+
+false || true → true
+
+So payment is possible.
+
+17. NOT !
+
+! means opposite.
+
+let isLoggedIn = true;
+
+console.log(!isLoggedIn);
+
+Output:
+
+false
+
+Because:
+
+true → ! → false
+
+Another:
+
+let isLoggedIn = false;
+
+if (!isLoggedIn) {
+    console.log("Please login");
+}
+18. Combining Operators
+
+This is where things become practical.
+
+Imagine an e-commerce website.
+
+let price = 1000;
+let discount = 200;
+let isMember = true;
+
+let finalPrice = price - discount;
+
+if (isMember && finalPrice < 1000) {
+    console.log("Free delivery");
+}
+
+Here you're using:
+
+Number
+Boolean
+-
+<
+&&
+if
+
+This is how JavaScript starts becoming useful.
+
+19. Increment and Decrement
+
+You will see these frequently:
+
+++
+--
+
+Example:
+
+let count = 5;
+
+count++;
+
+console.log(count);
+
+Output:
+
+6
+
+Same as:
+
+count = count + 1;
+
+And:
+
+count--;
+
+means:
+
+count = count - 1;
+20. A Very Important Practical Example
+
+Let's build a Student Result Calculator.
+
+let studentName = "Ithesh";
+
+let math = 85;
+let science = 78;
+let english = 90;
+
+let total = math + science + english;
+
+let percentage = total / 3;
+
+console.log(`Student: ${studentName}`);
+console.log(`Total: ${total}`);
+console.log(`Percentage: ${percentage}`);
+
+Now add conditions:
+
+if (percentage >= 90) {
+    console.log("Grade A+");
+} else if (percentage >= 80) {
+    console.log("Grade A");
+} else if (percentage >= 70) {
+    console.log("Grade B");
+} else if (percentage >= 60) {
+    console.log("Grade C");
+} else {
+    console.log("Fail");
+}
+
+Now you are using:
+
+String
+Number
++
+/
+>=
+if
+else if
+else
+
+This is a very good beginner project.
+
+21. Practical Task #1 — Student Information Program
+
+Don't just copy this. Try to build it yourself.
+
+Create:
+
+let studentName = "";
+let age = ;
+let course = "";
+let isStudent = ;
+
+Then print:
+
+Student Name:
+Age:
+Course:
+Is Student:
+
+Also print each data type using:
+
+typeof
+Your target
+
+You should be able to create something like:
+
+Student Name: Rahul
+Age: 21
+Course: JavaScript
+Is Student: true
+
+string
+number
+string
+boolean
+22. Practical Task #2 — Shopping Bill ⭐
+
+This one is more useful for real development.
+
+Create:
+
+let productName = "Laptop";
+let price = 50000;
+let quantity = 2;
+
+Calculate:
+
+Subtotal
+Discount
+Final Price
+
+For example:
+
+let subtotal = price * quantity;
+let discount = 5000;
+let finalPrice = subtotal - discount;
+
+Print:
+
+Product: Laptop
+Price: ₹50000
+Quantity: 2
+Subtotal: ₹100000
+Discount: ₹5000
+Final Price: ₹95000
+23. Practical Task #3 — Login System ⭐⭐⭐
+
+This is excellent for learning Boolean + comparison + logical operators.
+
+Create:
+
+let username = "admin";
+let password = "12345";
+
+Then:
+
+let enteredUsername = "admin";
+let enteredPassword = "12345";
+
+Check:
+
+if (enteredUsername === username && enteredPassword === password) {
+    console.log("Login successful");
+} else {
+    console.log("Invalid username or password");
+}
+
+You have now used:
+
+String
+Boolean
+===
+&&
+if
+else
+24. Practical Task #4 — Age Eligibility Checker
+
+Create:
+
+let age = 20;
+
+Check:
+
+18 or above → Eligible
+Below 18    → Not eligible
+
+Use:
+
+if
+else
+>=
+
+Then make it more advanced:
+
+Age < 13       → Child
+13–17          → Teenager
+18–59          → Adult
+60+            → Senior
+
+This will help you understand else if.
+
+25. Practical Task #5 — Even or Odd
+
+Create:
+
+let number = 27;
+
+Determine whether it is:
+
+Even
+
+or:
+
+Odd
+
+Hint:
+
+number % 2
+
+This teaches you a very useful real-world application of the % operator.
+
+26. Practical Task #6 — Electricity Bill
+
+This is a very good practical project.
+
+Create:
+
+let units = 250;
+
+Suppose:
+
+0–100 units   → ₹5 per unit
+101–200       → ₹7 per unit
+201+          → ₹10 per unit
+
+Calculate the bill.
+
+You will practice:
+
+Number
+if
+else if
+else
+>
+<=
+*
++
+27. Practical Task #7 — Simple ATM
+
+This is one of the best beginner exercises.
+
+Start with:
+
+let balance = 10000;
+let withdrawal = 3000;
+
+Check:
+
+If withdrawal <= balance
+    → Withdraw money
+    → Show remaining balance
+
+Otherwise
+    → Insufficient balance
+
+Example:
+
+if (withdrawal <= balance) {
+    balance = balance - withdrawal;
+
+    console.log("Withdrawal successful");
+    console.log(`Remaining balance: ₹${balance}`);
+} else {
+    console.log("Insufficient balance");
+}
+
+Now add:
+
+withdrawal must be greater than 0
+
+You'll start combining multiple conditions.
+
+28. One Important Concept: Truthy and Falsy
+
+JavaScript doesn't only understand true and false.
+
+Some values behave like false when used in a condition.
+
+Common falsy values:
+
+false
+0
+""
+null
+undefined
+NaN
+
+Example:
+
+let name = "";
+
+if (name) {
+    console.log("Name exists");
+} else {
+    console.log("Name is empty");
+}
+
+Output:
+
+Name is empty
+
+This becomes extremely useful when working with forms.
+
+29. The Most Important Things to Learn First
+
+Don't try to memorize everything at once.
+
+Learn in this order:
+
+Level 1 — Data
+String
+Number
+Boolean
+undefined
+null
+Level 2 — Collections
+Array
+Object
+Level 3 — Basic operators
++
+-
+*
+/
+%
+Level 4 — Comparison
+>
+<
+>=
+<=
+===
+!==
+Level 5 — Logic
+&&
+||
+!
+Level 6 — Conditions
+if
+else if
+else
+
+Once these are comfortable, you'll be ready for loops, functions, arrays methods, objects, DOM manipulation, and real projects.
+
+🎯 Your Main Practice Project
+
+I recommend you build this one instead of doing only small exercises:
+
+Student Management & Result System
+
+Your program should store:
+
+let studentName = "Rahul";
+let age = 21;
+let course = "JavaScript";
+
+let math = 85;
+let science = 78;
+let english = 92;
+
+let isStudent = true;
+
+Then calculate:
+
+1. Student name
+2. Age
+3. Course
+4. Total marks
+5. Percentage
+6. Grade
+7. Pass/Fail
+8. Whether student is eligible for an exam
+9. Display all data types
+
+And eventually convert it into a real HTML page with input boxes and a button, where the user enters the marks and JavaScript calculates everything.
+
+That single project will make data types + operators + if/else much clearer than memorizing definitions.
+
+</script>
+</html>
