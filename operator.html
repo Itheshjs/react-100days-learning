@@ -1,0 +1,2769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let cartTotal = 1000;
+    cartTotal+=500;
+    cartTotal+=250;
+    cartTotal-=500;
+
+    console.log(cartTotal);
+
+</script>
+</html>
+
+
+LEVEL 2 — Operators & Logic
+4. Operators
+
+Master:
+
+Arithmetic
+
++ - * / % **
+
+Assignment
+
+= += -= *= /= %=
+
+Comparison
+
+== ===
+!= !==
+>
+<
+>=
+<=
+
+Logical
+
+&&
+||
+!
+
+Ternary
+
+condition ? value1 : value2 . understand all this with task practical  i need to know all concept 
+
+Absolutely. Operators are one of the most important JavaScript topics because they are used everywhere: calculations, if conditions, validation, forms, login systems, shopping carts, marks/grades, APIs, etc.
+
+We’ll learn this as:
+
+What operators are
+Arithmetic operators
+Assignment operators
+Comparison operators
+Logical operators
+Ternary operator
+How operators work together
+Practical tasks
+A final mini-project
+LEVEL 2 — Operators & Logic
+1. What is an operator?
+
+An operator is a symbol that tells JavaScript to perform an operation.
+
+Example:
+
+let a = 10;
+let b = 5;
+
+console.log(a + b);
+
+Output:
+
+15
+
+Here:
+
+a + b
+a → operand
++ → operator
+b → operand
+
+Think:
+
+10 + 5
+↑    ↑
+operand
+
++ = operator
+2. Arithmetic Operators
+
+Arithmetic operators are used for mathematical calculations.
+
+You need to master:
+
++
+-
+*
+/
+%
+**
++ Addition
+let a = 10;
+let b = 5;
+
+console.log(a + b);
+
+Output:
+
+15
+Real-world example
+let price = 500;
+let delivery = 50;
+
+let total = price + delivery;
+
+console.log(total);
+
+Output:
+
+550
+Important: + also joins strings
+let firstName = "Ithesh";
+let lastName = "Kumar";
+
+console.log(firstName + " " + lastName);
+
+Output:
+
+Ithesh Kumar
+
+This is called string concatenation.
+
+Example:
+
+let age = 25;
+
+console.log("I am " + age + " years old");
+
+Output:
+
+I am 25 years old
+- Subtraction
+let a = 20;
+let b = 8;
+
+console.log(a - b);
+
+Output:
+
+12
+Practical
+let salary = 30000;
+let expenses = 12000;
+
+let savings = salary - expenses;
+
+console.log(savings);
+
+Output:
+
+18000
+* Multiplication
+let price = 500;
+let quantity = 3;
+
+let total = price * quantity;
+
+console.log(total);
+
+Output:
+
+1500
+
+This is extremely common in e-commerce.
+
+price × quantity = total
+/ Division
+let totalMarks = 450;
+let subjects = 5;
+
+let average = totalMarks / subjects;
+
+console.log(average);
+
+Output:
+
+90
+% Modulus / Remainder
+
+This one is very important.
+
+% gives you the remainder after division.
+
+console.log(10 % 3);
+
+Output:
+
+1
+
+Because:
+
+10 ÷ 3
+
+3 × 3 = 9
+remainder = 1
+
+Therefore:
+
+10 % 3
+
+gives:
+
+1
+
+Another:
+
+console.log(20 % 5);
+
+Output:
+
+0
+
+Because 20 divides exactly by 5.
+
+Why is % useful?
+Check even or odd
+let number = 10;
+
+console.log(number % 2);
+
+Output:
+
+0
+
+Therefore it's even.
+
+let number = 7;
+
+console.log(number % 2);
+
+Output:
+
+1
+
+Therefore it's odd.
+
+Later you'll use:
+
+if (number % 2 === 0) {
+    console.log("Even");
+} else {
+    console.log("Odd");
+}
+
+This is a very important programming pattern.
+
+** Exponentiation
+
+Used for powers.
+
+console.log(2 ** 3);
+
+Output:
+
+8
+
+Because:
+
+2 × 2 × 2 = 8
+
+More examples:
+
+console.log(5 ** 2);
+
+Output:
+
+25
+console.log(10 ** 3);
+
+Output:
+
+1000
+Arithmetic Summary
+Operator	Meaning	Example	Result
++	Addition	10 + 5	15
+-	Subtraction	10 - 5	5
+*	Multiplication	10 * 5	50
+/	Division	10 / 5	2
+%	Remainder	10 % 3	1
+**	Power	2 ** 3	8
+TASK 1 — Calculator
+
+Don't copy the answer immediately. Try it yourself.
+
+Create:
+
+let num1 = 20;
+let num2 = 5;
+
+Calculate:
+
+addition
+subtraction
+multiplication
+division
+remainder
+power
+
+Expected:
+
+25
+15
+100
+4
+0
+3200000
+
+Your code should look conceptually like:
+
+let num1 = 20;
+let num2 = 5;
+
+console.log(num1 + num2);
+console.log(num1 - num2);
+console.log(num1 * num2);
+console.log(num1 / num2);
+console.log(num1 % num2);
+console.log(num1 ** num2);
+3. Assignment Operators
+
+Assignment operators are used to store or update values in variables.
+
+You've already seen:
+
+=
+
+But you need to master:
+
+=
++=
+-=
+*=
+/=
+%=
+= Assignment
+let score = 100;
+
+Means:
+
+Put the value 100 into score.
+
+It does not mean "is equal to" in the mathematical sense.
+
+Example:
+
+let age = 25;
+
+Now:
+
+age → 25
++=
+
+Instead of:
+
+let score = 100;
+
+score = score + 10;
+
+You can write:
+
+let score = 100;
+
+score += 10;
+
+Result:
+
+110
+
+Think:
+
+score += 10
+
+means:
+
+score = score + 10
+Practical example
+
+Shopping cart:
+
+let total = 1000;
+
+total += 500;
+
+console.log(total);
+
+Output:
+
+1500
+-=
+let money = 1000;
+
+money -= 300;
+
+console.log(money);
+
+Output:
+
+700
+
+Same as:
+
+money = money - 300;
+Practical
+
+Bank balance:
+
+let balance = 50000;
+
+balance -= 5000;
+
+console.log(balance);
+*=
+let price = 100;
+
+price *= 3;
+
+console.log(price);
+
+Output:
+
+300
+
+Same as:
+
+price = price * 3;
+/=
+let number = 100;
+
+number /= 4;
+
+console.log(number);
+
+Output:
+
+25
+
+Same as:
+
+number = number / 4;
+%=
+let number = 10;
+
+number %= 3;
+
+console.log(number);
+
+Output:
+
+1
+
+Same as:
+
+number = number % 3;
+Assignment Summary
+Operator	Same as
+=	x = value
++=	x = x + value
+-=	x = x - value
+*=	x = x * value
+/=	x = x / value
+%=	x = x % value
+TASK 2 — Shopping Cart
+
+Create:
+
+let cartTotal = 1000;
+
+Then:
+
+Add ₹500
+Add ₹250
+Remove ₹300
+Give 10% discount
+
+Try to use:
+
++=
+-=
+*=
+
+Hint:
+
+cartTotal *= 0.90;
+
+Why 0.90?
+
+Because keeping 90% means giving a 10% discount.
+
+4. Comparison Operators
+
+Now we move from calculation to decision making.
+
+Comparison operators compare two values.
+
+You need:
+
+==
+===
+!=
+!==
+>
+<
+>=
+<=
+
+The result is always:
+
+true
+
+or:
+
+false
+==
+
+Loose equality.
+
+console.log(5 == 5);
+
+Output:
+
+true
+
+But:
+
+console.log(5 == "5");
+
+Output:
+
+true
+
+Why?
+
+Because == can perform type conversion before comparing.
+
+===
+
+Strict equality.
+
+console.log(5 === 5);
+
+Output:
+
+true
+
+But:
+
+console.log(5 === "5");
+
+Output:
+
+false
+
+Why?
+
+Because:
+
+5     → number
+"5"   → string
+
+Different types.
+
+Professional JavaScript rule
+
+Prefer === over == in most code.
+
+You'll normally write:
+
+if (age === 18) {
+}
+
+rather than:
+
+if (age == 18) {
+}
+!=
+
+Means:
+
+Not equal, loosely.
+
+console.log(10 != 5);
+
+Output:
+
+true
+console.log(10 != 10);
+
+Output:
+
+false
+!==
+
+Strict not equal.
+
+console.log(5 !== "5");
+
+Output:
+
+true
+
+Because the types are different.
+
+> Greater Than
+console.log(10 > 5);
+
+Output:
+
+true
+console.log(5 > 10);
+
+Output:
+
+false
+< Less Than
+console.log(5 < 10);
+
+Output:
+
+true
+>= Greater Than or Equal
+console.log(10 >= 10);
+
+Output:
+
+true
+
+Because 10 is equal to 10.
+
+console.log(15 >= 10);
+
+Also:
+
+true
+<= Less Than or Equal
+console.log(10 <= 10);
+true
+
+And:
+
+console.log(5 <= 10);
+true
+Comparison Summary
+Operator	Meaning
+==	Equal, loose
+===	Equal, strict
+!=	Not equal, loose
+!==	Not equal, strict
+>	Greater than
+<	Less than
+>=	Greater/equal
+<=	Less/equal
+TASK 3 — Student Result
+
+Create:
+
+let marks = 75;
+
+Check:
+
+marks >= 35
+marks >= 90
+marks < 35
+marks === 75
+marks !== 50
+
+Before running, predict whether each result is:
+
+true
+
+or:
+
+false
+5. Logical Operators
+
+This is where JavaScript starts becoming really powerful.
+
+You need:
+
+&&
+||
+!
+
+These are used to combine conditions.
+
+&& AND
+
+Meaning:
+
+Both conditions must be true.
+
+Example:
+
+let age = 25;
+
+console.log(age >= 18 && age <= 60);
+
+Let's break it:
+
+age >= 18
+25 >= 18
+true
+
+and:
+
+age <= 60
+25 <= 60
+true
+
+Therefore:
+
+true && true
+
+Result:
+
+true
+If one is false
+let age = 15;
+
+console.log(age >= 18 && age <= 60);
+
+First:
+
+15 >= 18 → false
+
+Second:
+
+15 <= 60 → true
+
+So:
+
+false && true
+
+Result:
+
+false
+Remember
+
+For &&:
+
+true  && true  → true
+true  && false → false
+false && true  → false
+false && false → false
+
+AND requires everything to be true.
+
+Real-world example: Login
+
+Imagine:
+
+let usernameCorrect = true;
+let passwordCorrect = true;
+
+We need both.
+
+console.log(usernameCorrect && passwordCorrect);
+
+Result:
+
+true
+
+If password is wrong:
+
+let usernameCorrect = true;
+let passwordCorrect = false;
+
+console.log(usernameCorrect && passwordCorrect);
+
+Result:
+
+false
+|| OR
+
+Meaning:
+
+At least one condition must be true.
+
+Example:
+
+let age = 17;
+
+console.log(age < 18 || age > 60);
+
+First:
+
+17 < 18 → true
+
+Second:
+
+17 > 60 → false
+
+Therefore:
+
+true || false
+
+Result:
+
+true
+OR truth table
+true  || true  → true
+true  || false → true
+false || true  → true
+false || false → false
+
+Only when everything is false does OR become false.
+
+Real-world example
+
+Suppose a website gives a discount to:
+
+students
+OR senior citizens
+let isStudent = true;
+let isSeniorCitizen = false;
+
+console.log(isStudent || isSeniorCitizen);
+
+Result:
+
+true
+
+Because one condition is true.
+
+! NOT
+
+! means:
+
+Reverse the boolean value.
+
+let loggedIn = true;
+
+console.log(!loggedIn);
+
+Result:
+
+false
+
+Because:
+
+true → false
+
+And:
+
+let loggedIn = false;
+
+console.log(!loggedIn);
+
+Result:
+
+true
+
+Because:
+
+false → true
+Very common example
+let isLoggedIn = false;
+
+if (!isLoggedIn) {
+    console.log("Please login");
+}
+
+Meaning:
+
+If the user is NOT logged in, show login message.
+
+Logical Operators Summary
+AND
+condition1 && condition2
+
+Both need to be true.
+
+OR
+condition1 || condition2
+
+At least one needs to be true.
+
+NOT
+!condition
+
+Reverses true/false.
+
+TASK 4 — Login System Logic
+
+Create:
+
+let usernameCorrect = true;
+let passwordCorrect = false;
+let accountActive = true;
+
+Build these checks:
+
+Check 1
+
+Username AND password must be correct.
+
+usernameCorrect && passwordCorrect
+Check 2
+
+Username OR password is correct.
+
+usernameCorrect || passwordCorrect
+Check 3
+
+Account is NOT active.
+
+!accountActive
+
+Predict the output before running.
+
+6. Ternary Operator
+
+This is extremely common in modern JavaScript.
+
+Syntax:
+
+condition ? value1 : value2
+
+Think:
+
+condition ?
+     ↓
+   true → value1
+   false → value2
+Basic example
+let age = 20;
+
+let result = age >= 18 ? "Adult" : "Minor";
+
+console.log(result);
+
+Output:
+
+Adult
+
+The same logic using if/else would be:
+
+let age = 20;
+let result;
+
+if (age >= 18) {
+    result = "Adult";
+} else {
+    result = "Minor";
+}
+
+Ternary makes simple conditions shorter.
+
+Understand the syntax
+age >= 18 ? "Adult" : "Minor"
+
+Break it:
+
+age >= 18
+    ↓
+condition
+
+?
+    ↓
+if true
+
+"Adult"
+
+:
+
+    ↓
+if false
+
+"Minor"
+
+So:
+
+condition ? trueValue : falseValue
+Practical example — Pass/Fail
+let marks = 70;
+
+let result = marks >= 35 ? "Pass" : "Fail";
+
+console.log(result);
+
+Output:
+
+Pass
+Practical example — Even/Odd
+let number = 10;
+
+let result = number % 2 === 0 ? "Even" : "Odd";
+
+console.log(result);
+
+Output:
+
+Even
+
+Notice how we combined:
+
+%
+===
+?
+:
+
+This is exactly how operators start working together.
+
+Practical example — Login status
+let isLoggedIn = true;
+
+let message = isLoggedIn ? "Welcome" : "Please login";
+
+console.log(message);
+
+Output:
+
+Welcome
+Practical example — Discount
+let amount = 1500;
+
+let discount = amount >= 1000 ? 200 : 0;
+
+console.log(discount);
+
+Output:
+
+200
+7. Now Combine Everything
+
+This is the important part.
+
+Don't learn operators separately forever.
+
+In real development, you'll combine them.
+
+Example:
+
+let price = 1000;
+let quantity = 3;
+let isMember = true;
+
+let total = price * quantity;
+
+let discount = isMember && total >= 2000 ? 200 : 0;
+
+let finalPrice = total - discount;
+
+console.log(finalPrice);
+
+Let's understand.
+
+Step 1
+price * quantity
+1000 × 3 = 3000
+Step 2
+isMember && total >= 2000
+true && true
+
+Therefore:
+
+true
+Step 3
+? 200 : 0
+
+Discount:
+
+200
+Step 4
+3000 - 200
+
+Final:
+
+2800
+8. Operator Precedence
+
+You also need to understand which operation JavaScript performs first.
+
+Example:
+
+let result = 10 + 5 * 2;
+
+console.log(result);
+
+You might think:
+
+10 + 5 = 15
+15 × 2 = 30
+
+But JavaScript gives:
+
+20
+
+Because multiplication happens first:
+
+5 × 2 = 10
+
+10 + 10 = 20
+Use parentheses when needed
+let result = (10 + 5) * 2;
+
+console.log(result);
+
+Now:
+
+15 × 2 = 30
+
+Output:
+
+30
+Good developer habit
+
+If an expression becomes complicated, use parentheses.
+
+9. A Very Important Difference
+
+Don't confuse these:
+
+=
+==
+===
+
+They are completely different.
+
+=
+
+Assignment:
+
+let age = 25;
+==
+
+Loose comparison:
+
+age == 25
+===
+
+Strict comparison:
+
+age === 25
+
+Remember:
+
+=     → PUT
+==    → COMPARE loosely
+===   → COMPARE strictly
+10. Real-World Practice Project
+
+Now let's build something closer to actual development.
+
+🎯 Project: Student Result + Scholarship Checker
+
+Requirements:
+
+A student has:
+
+let studentName = "Rahul";
+let marks = 85;
+let attendance = 90;
+let familyIncome = 180000;
+
+We need to determine:
+
+Rule 1
+
+Student passes if:
+
+marks >= 35
+Rule 2
+
+Student gets distinction if:
+
+marks >= 75
+Rule 3
+
+Student is eligible for scholarship if:
+
+marks >= 75
+AND
+attendance >= 75
+AND
+family income <= 250000
+Rule 4
+
+Display:
+
+Pass
+
+or:
+
+Fail
+Rule 5
+
+Display:
+
+Scholarship Eligible
+
+or:
+
+Not Eligible
+Try writing it yourself first
+
+You have all the operators needed:
+
+>=
+&&
+<=
+?
+:
+
+A possible solution is:
+
+let studentName = "Rahul";
+let marks = 85;
+let attendance = 90;
+let familyIncome = 180000;
+
+let result = marks >= 35 ? "Pass" : "Fail";
+
+let scholarship =
+    marks >= 75 &&
+    attendance >= 75 &&
+    familyIncome <= 250000
+        ? "Scholarship Eligible"
+        : "Not Eligible";
+
+console.log("Student:", studentName);
+console.log("Result:", result);
+console.log("Scholarship:", scholarship);
+
+Output:
+
+Student: Rahul
+Result: Pass
+Scholarship: Scholarship Eligible
+11. Your Operator Mastery Tasks
+
+Do these without looking at the solutions.
+
+🟢 Task 1 — Calculator
+let a = 25;
+let b = 4;
+
+Calculate:
+
+addition
+subtraction
+multiplication
+division
+remainder
+power
+🟢 Task 2 — Even/Odd
+let number = 17;
+
+Use:
+
+%
+===
+?
+:
+
+Expected:
+
+Odd
+🟢 Task 3 — Age Checker
+let age = 22;
+
+Use ternary.
+
+Expected:
+
+Eligible to vote
+🟡 Task 4 — Login
+let usernameCorrect = true;
+let passwordCorrect = true;
+
+Use:
+
+&&
+
+Expected:
+
+Login successful
+
+Change password to:
+
+false
+
+and test again.
+
+🟡 Task 5 — Shopping Cart
+let price = 800;
+let quantity = 3;
+
+Calculate:
+
+total price
+
+Then:
+
+if total >= 2000
+discount = 10%
+else
+discount = 0
+
+Calculate final price.
+
+You'll need:
+
+*
+>=
+?
+:
+-
+🟡 Task 6 — Driving Eligibility
+
+Create:
+
+let age = 25;
+let hasLicense = true;
+
+A person can drive only when:
+
+age >= 18
+AND
+hasLicense === true
+
+Use &&.
+
+🔴 Task 7 — E-commerce Order
+
+Build:
+
+let productPrice = 1200;
+let quantity = 3;
+let isMember = true;
+let couponApplied = true;
+
+Calculate:
+
+Step 1
+
+Total:
+
+productPrice × quantity
+Step 2
+
+If member AND total >= 3000:
+
+₹300 discount
+
+Otherwise:
+
+₹0
+Step 3
+
+If coupon is applied:
+
+additional ₹100 discount
+Step 4
+
+Calculate:
+
+finalPrice
+
+Operators you'll need:
+
+*
+&&
+>=
+?
+:
++
+-
+12. Final Challenge 🔥
+
+Don't use if/else yet. Use the operators you've learned.
+
+Build a Movie Ticket Booking Calculator.
+
+Given:
+
+let ticketPrice = 200;
+let numberOfTickets = 4;
+let age = 22;
+let isWeekend = true;
+let isMember = true;
+
+Rules:
+
+Total
+ticketPrice × numberOfTickets
+Member discount
+
+If member:
+
+₹100 discount
+
+Otherwise:
+
+₹0
+Weekend charge
+
+If weekend:
+
+₹50 extra
+
+Otherwise:
+
+₹0
+Age discount
+
+If age is below 12 OR age is 60 or above:
+
+₹100 discount
+
+Otherwise:
+
+₹0
+Final price
+
+Calculate:
+
+total
+- member discount
+- age discount
++ weekend charge
+
+This one task forces you to use:
+
+Arithmetic
++
+-
+*
+
+Assignment
+=
++=
+-=
+
+Comparison
+>=
+<
+===
+
+Logical
+&&
+||
+
+Ternary
+? :
+
+Once you can solve that without copying, you genuinely understand the Level 2 operators.
+
+🧠 The mental model to remember
+
+Think of JavaScript operators in 5 groups:
+
+ARITHMETIC
+↓
+Calculate
++ - * / % **
+
+ASSIGNMENT
+↓
+Update
+= += -= *= /= %=
+
+COMPARISON
+↓
+Ask a question
+== === != !== > < >= <=
+
+LOGICAL
+↓
+Combine questions
+&& || !
+
+TERNARY
+↓
+Make a short decision
+condition ? trueValue : falseValue
+
+And the most important progression is:
+
+let price = 500;                 // =
+let total = price * 3;           // *
+
+total += 100;                    // +=
+
+total >= 1000                    // comparison
+
+total >= 1000 && isMember        // logical
+
+let discount = total >= 1000
+    ? 100
+    : 0;                         // ternary
+
+That's the foundation of JavaScript logic. Next, once you're comfortable with these, if, else if, else, nested conditions, and loops will become much easier because you're simply putting these operators inside larger decision-making structures.
+
+if
+else
+else if
+switch . this  all i want understand  give related practical  coding task  i want understand all this 
+
+Yes. This is the next most important JavaScript concept after operators.
+
+You already learned operators like:
+
+>=
+===
+&&
+||
+!
+
+Now you will learn how to use those operators to make decisions.
+
+LEVEL 2 — Conditional Statements
+
+We will learn:
+
+if
+else
+else if
+switch
+How they differ
+Practical coding tasks
+One real-world mini project
+Challenge tasks
+1. What is a condition?
+
+A condition is basically a question whose answer is true or false.
+
+Example:
+
+let age = 20;
+
+console.log(age >= 18);
+
+Result:
+
+true
+
+JavaScript can use that true/false result to decide what code should run.
+
+That's where if comes in.
+
+2. if
+
+The basic syntax is:
+
+if (condition) {
+    // code runs if condition is true
+}
+
+Example:
+
+let age = 20;
+
+if (age >= 18) {
+    console.log("You can vote");
+}
+
+Output:
+
+You can vote
+
+Why?
+
+JavaScript checks:
+
+age >= 18
+
+which becomes:
+
+20 >= 18
+true
+
+Because it's true, JavaScript executes:
+
+console.log("You can vote");
+What if the condition is false?
+let age = 15;
+
+if (age >= 18) {
+    console.log("You can vote");
+}
+
+Nothing is printed.
+
+Because:
+
+15 >= 18
+false
+
+The code inside if doesn't execute.
+
+Important mental model
+
+Think of if as:
+
+IF this is true → do this.
+
+             condition
+                 ↓
+             age >= 18
+              /     \
+           true     false
+            ↓          ↓
+         execute    don't execute
+Practical Task 1 — Driving
+
+Create:
+
+let age = 20;
+
+If age is 18 or above, print:
+
+You can drive
+
+Try it yourself first.
+
+Solution:
+
+let age = 20;
+
+if (age >= 18) {
+    console.log("You can drive");
+}
+
+Now change:
+
+let age = 15;
+
+Nothing will print.
+
+3. else
+
+What if you want JavaScript to do something when the condition is false?
+
+Use else.
+
+Syntax:
+
+if (condition) {
+    // true
+} else {
+    // false
+}
+
+Example:
+
+let age = 15;
+
+if (age >= 18) {
+    console.log("You can vote");
+} else {
+    console.log("You cannot vote");
+}
+
+Output:
+
+You cannot vote
+
+Because:
+
+15 >= 18
+false
+
+So JavaScript executes else.
+
+Think about if + else
+IF condition is TRUE
+        ↓
+     do A
+
+OTHERWISE
+        ↓
+     do B
+
+Example:
+
+let number = 10;
+
+if (number % 2 === 0) {
+    console.log("Even");
+} else {
+    console.log("Odd");
+}
+
+Output:
+
+Even
+
+Here we are combining:
+
+%
+===
+if
+else
+Practical Task 2 — Even or Odd
+
+Write a program:
+
+let number = 17;
+
+Expected:
+
+Odd
+
+Change it to:
+
+let number = 20;
+
+Expected:
+
+Even
+
+Solution:
+
+let number = 17;
+
+if (number % 2 === 0) {
+    console.log("Even");
+} else {
+    console.log("Odd");
+}
+
+This is a very important beginner programming pattern.
+
+4. else if
+
+Now suppose there are more than two possibilities.
+
+For example, marks:
+
+90–100 → A
+75–89  → B
+60–74  → C
+35–59  → D
+below 35 → Fail
+
+if + else isn't enough.
+
+We can use:
+
+if
+else if
+else
+
+Syntax:
+
+if (condition1) {
+
+} else if (condition2) {
+
+} else if (condition3) {
+
+} else {
+
+}
+Example — Student Grade
+let marks = 85;
+
+if (marks >= 90) {
+    console.log("Grade A+");
+} else if (marks >= 75) {
+    console.log("Grade A");
+} else if (marks >= 60) {
+    console.log("Grade B");
+} else if (marks >= 35) {
+    console.log("Grade C");
+} else {
+    console.log("Fail");
+}
+
+Output:
+
+Grade A
+
+Why?
+
+JavaScript checks from top to bottom.
+
+marks >= 90
+85 >= 90
+false
+
+Next:
+
+marks >= 75
+85 >= 75
+true
+
+So:
+
+Grade A
+
+JavaScript stops there.
+
+Very important: order matters
+
+Look at this:
+
+let marks = 85;
+
+if (marks >= 35) {
+    console.log("Pass");
+} else if (marks >= 75) {
+    console.log("Grade A");
+}
+
+This is WRONG for grading.
+
+Why?
+
+85 >= 35 is already true.
+
+So JavaScript executes:
+
+Pass
+
+and never reaches:
+
+else if (marks >= 75)
+
+Therefore, put more specific/higher conditions first.
+
+Correct:
+
+if (marks >= 90) {
+    console.log("A+");
+} else if (marks >= 75) {
+    console.log("A");
+} else if (marks >= 60) {
+    console.log("B");
+} else if (marks >= 35) {
+    console.log("C");
+} else {
+    console.log("Fail");
+}
+Practical Task 3 — Grade Calculator
+
+Create:
+
+let marks = 72;
+
+Rules:
+
+90+     → A+
+75–89   → A
+60–74   → B
+35–59   → C
+below 35 → Fail
+
+Write the code yourself.
+
+Test:
+
+95
+82
+67
+45
+20
+
+You should get:
+
+A+
+A
+B
+C
+Fail
+5. Multiple conditions with &&
+
+You can put multiple conditions inside if.
+
+Example:
+
+let age = 25;
+
+if (age >= 18 && age <= 60) {
+    console.log("Working age");
+}
+
+Here:
+
+age >= 18
+
+AND:
+
+age <= 60
+
+Both must be true.
+
+Practical — Job Eligibility
+
+Suppose:
+
+let age = 25;
+let experience = 2;
+
+Requirement:
+
+age >= 18
+AND
+experience >= 1
+
+Code:
+
+if (age >= 18 && experience >= 1) {
+    console.log("Eligible for job");
+} else {
+    console.log("Not eligible");
+}
+6. Multiple conditions with ||
+
+|| means OR.
+
+Example:
+
+let day = "Sunday";
+
+if (day === "Saturday" || day === "Sunday") {
+    console.log("Weekend");
+}
+
+Because one condition is true:
+
+day === "Saturday" → false
+
+day === "Sunday" → true
+
+Therefore:
+
+false || true
+→ true
+
+Output:
+
+Weekend
+Practical Task 4 — Weekend Checker
+
+Create:
+
+let day = "Sunday";
+
+If day is Saturday OR Sunday:
+
+Weekend
+
+Otherwise:
+
+Weekday
+
+Try:
+
+Monday
+Saturday
+Sunday
+Friday
+7. Nested if
+
+An if can exist inside another if.
+
+Example:
+
+let age = 25;
+let hasLicense = true;
+
+if (age >= 18) {
+
+    if (hasLicense === true) {
+        console.log("You can drive");
+    }
+
+}
+
+First:
+
+age >= 18
+
+If true, then JavaScript checks:
+
+hasLicense === true
+Better version
+
+You can often simplify it:
+
+if (age >= 18 && hasLicense === true) {
+    console.log("You can drive");
+}
+
+Both are valid.
+
+Practical Task 5 — Login System
+
+Create:
+
+let username = "admin";
+let password = "1234";
+
+Requirements:
+
+username must be "admin"
+AND
+password must be "1234"
+
+If correct:
+
+Login successful
+
+Otherwise:
+
+Invalid username or password
+
+Try:
+
+let username = "admin";
+let password = "1234";
+
+Then test:
+
+let username = "admin";
+let password = "9999";
+
+Solution:
+
+if (username === "admin" && password === "1234") {
+    console.log("Login successful");
+} else {
+    console.log("Invalid username or password");
+}
+8. else if with Real-World Conditions
+
+Let's build an electricity bill calculator.
+
+Suppose:
+
+0–100 units     → ₹5/unit
+101–200 units   → ₹7/unit
+201+ units      → ₹10/unit
+
+We can check:
+
+let units = 150;
+
+if (units <= 100) {
+    console.log("Rate: ₹5/unit");
+} else if (units <= 200) {
+    console.log("Rate: ₹7/unit");
+} else {
+    console.log("Rate: ₹10/unit");
+}
+
+Output:
+
+Rate: ₹7/unit
+
+Notice something important.
+
+We don't need:
+
+units > 100 && units <= 200
+
+because the first condition already failed.
+
+If we reach:
+
+else if (units <= 200)
+
+we already know:
+
+units > 100
+9. What is switch?
+
+switch is another way of handling multiple exact values.
+
+For example:
+
+1 → Monday
+2 → Tuesday
+3 → Wednesday
+...
+
+Instead of:
+
+if (day === 1) {
+
+} else if (day === 2) {
+
+} else if (day === 3) {
+
+}
+
+you can use:
+
+switch (day) {
+
+    case 1:
+        console.log("Monday");
+        break;
+
+    case 2:
+        console.log("Tuesday");
+        break;
+
+    case 3:
+        console.log("Wednesday");
+        break;
+
+    default:
+        console.log("Invalid day");
+}
+10. Understand switch step by step
+
+Suppose:
+
+let day = 2;
+
+Then:
+
+switch (day)
+
+JavaScript looks for:
+
+case 2:
+
+So:
+
+console.log("Tuesday");
+
+runs.
+
+Why break?
+
+This is extremely important.
+
+Consider:
+
+let day = 2;
+
+switch (day) {
+
+    case 1:
+        console.log("Monday");
+        break;
+
+    case 2:
+        console.log("Tuesday");
+        break;
+
+    case 3:
+        console.log("Wednesday");
+        break;
+
+    default:
+        console.log("Invalid");
+}
+
+The break tells JavaScript:
+
+Stop the switch here.
+
+Without break, JavaScript can continue executing the following cases.
+
+11. What is default?
+
+default is basically the else of a switch.
+
+Example:
+
+let day = 10;
+
+switch (day) {
+
+    case 1:
+        console.log("Monday");
+        break;
+
+    case 2:
+        console.log("Tuesday");
+        break;
+
+    default:
+        console.log("Invalid day");
+}
+
+Output:
+
+Invalid day
+
+Because there is no:
+
+case 10
+12. switch vs if/else
+
+This is VERY important for interviews and real development.
+
+Use if/else when you have:
+
+Ranges or complex conditions
+
+if (marks >= 90) {
+
+} else if (marks >= 75) {
+
+}
+
+or:
+
+if (age >= 18 && hasLicense) {
+
+}
+Use switch when you have:
+
+Exact values
+
+switch (day) {
+    case "Monday":
+        ...
+        break;
+
+    case "Tuesday":
+        ...
+        break;
+}
+Example comparison
+if/else
+let age = 25;
+
+if (age >= 18) {
+    console.log("Adult");
+} else {
+    console.log("Minor");
+}
+
+Good because we're comparing a range.
+
+switch
+let role = "admin";
+
+switch (role) {
+
+    case "admin":
+        console.log("Full access");
+        break;
+
+    case "editor":
+        console.log("Edit access");
+        break;
+
+    case "user":
+        console.log("Basic access");
+        break;
+
+    default:
+        console.log("Unknown role");
+}
+
+Excellent use of switch.
+
+13. Practical Task — User Role
+
+Create:
+
+let role = "editor";
+
+Rules:
+
+admin  → Full access
+editor → Can edit content
+user   → Basic access
+guest  → Read-only access
+anything else → Unknown role
+
+Use switch.
+
+Expected:
+
+Can edit content
+14. Practical Task — Simple Calculator
+
+This is a very useful switch task.
+
+Create:
+
+let num1 = 20;
+let num2 = 5;
+let operator = "+";
+
+We want:
+
++ → addition
+- → subtraction
+* → multiplication
+/ → division
+
+Build:
+
+switch (operator) {
+
+    case "+":
+        console.log(num1 + num2);
+        break;
+
+    case "-":
+        console.log(num1 - num2);
+        break;
+
+    case "*":
+        console.log(num1 * num2);
+        break;
+
+    case "/":
+        console.log(num1 / num2);
+        break;
+
+    default:
+        console.log("Invalid operator");
+}
+
+Now change:
+
+let operator = "*";
+
+Output:
+
+100
+
+This is a simple version of how calculator logic works.
+
+15. if, else if, else — One Complete Example
+
+Let's create a shopping discount system.
+
+let amount = 3500;
+
+if (amount >= 5000) {
+    console.log("20% discount");
+} else if (amount >= 3000) {
+    console.log("10% discount");
+} else if (amount >= 1000) {
+    console.log("5% discount");
+} else {
+    console.log("No discount");
+}
+
+For:
+
+3500
+
+JavaScript checks:
+
+3500 >= 5000 → false
+
+3500 >= 3000 → true
+
+So:
+
+10% discount
+
+and it stops.
+
+16. Combine Operators + if
+
+This is where your previous lesson becomes useful.
+
+Example:
+
+let age = 25;
+let hasLicense = true;
+
+if (age >= 18 && hasLicense === true) {
+    console.log("You can drive");
+} else {
+    console.log("You cannot drive");
+}
+
+You're now using:
+
+>=
+===
+&&
+if
+else
+17. Combine else if + operators
+
+Student system:
+
+let marks = 82;
+let attendance = 85;
+
+if (marks >= 75 && attendance >= 75) {
+    console.log("Passed with good attendance");
+} else if (marks >= 35 && attendance >= 75) {
+    console.log("Passed");
+} else {
+    console.log("Not eligible");
+}
+
+Notice:
+
+marks >= 75 && attendance >= 75
+
+is a complete logical condition.
+
+18. A Very Important Difference: if vs switch
+
+Remember this table:
+
+Situation	Use
+One condition	if
+Two possibilities	if + else
+Multiple ranges/conditions	if + else if + else
+Multiple exact values	switch
+
+Examples:
+
+if (age >= 18)
+
+Use if.
+
+if (age >= 18) {
+    ...
+} else {
+    ...
+}
+
+Use if/else.
+
+if (marks >= 90) {
+    ...
+} else if (marks >= 75) {
+    ...
+} else if (marks >= 60) {
+    ...
+} else {
+    ...
+}
+
+Use if/else if/else.
+
+switch (role) {
+    case "admin":
+    case "editor":
+    case "user":
+}
+
+Use switch.
+
+🔥 PRACTICAL PROJECT 1 — ATM
+
+Now let's make something more realistic.
+
+Create:
+
+let balance = 10000;
+let withdrawal = 3000;
+
+Requirements:
+
+Condition 1
+
+If withdrawal is greater than balance:
+
+Insufficient balance
+
+Otherwise:
+
+Withdrawal successful
+
+And calculate remaining balance.
+
+Expected:
+
+Withdrawal successful
+Remaining balance: 7000
+
+Try writing it.
+
+One solution:
+
+let balance = 10000;
+let withdrawal = 3000;
+
+if (withdrawal <= balance) {
+    balance -= withdrawal;
+
+    console.log("Withdrawal successful");
+    console.log("Remaining balance:", balance);
+} else {
+    console.log("Insufficient balance");
+}
+
+Notice we're combining:
+
+<=
+-=
+if
+else
+🔥 PRACTICAL PROJECT 2 — Login + Account Status
+
+Create:
+
+let username = "admin";
+let password = "1234";
+let accountActive = true;
+
+Rules:
+
+Username and password correct AND account active
+Login successful
+Username/password incorrect
+Invalid credentials
+Credentials correct but account inactive
+Account is inactive
+
+Try to write it using:
+
+if
+else if
+else
+&&
+===
+
+One good solution:
+
+if (username === "admin" && password === "1234" && accountActive === true) {
+    console.log("Login successful");
+} else if (username === "admin" && password === "1234" && accountActive === false) {
+    console.log("Account is inactive");
+} else {
+    console.log("Invalid credentials");
+}
+🔥 PRACTICAL PROJECT 3 — E-Commerce Checkout
+
+This is a very good task for you because it combines almost everything you've learned.
+
+Create:
+
+let cartTotal = 3500;
+let isLoggedIn = true;
+let isMember = true;
+let paymentMethod = "UPI";
+
+Rules:
+
+Rule 1
+
+User must be logged in.
+
+If not:
+
+Please login first
+Rule 2
+
+If logged in, check cart total.
+
+If:
+
+cartTotal >= 3000
+
+and member:
+
+10% discount
+
+Otherwise:
+
+No discount
+Rule 3
+
+Payment method:
+
+UPI       → Processing UPI payment
+CARD      → Processing card payment
+COD       → Cash on delivery
+anything  → Invalid payment method
+
+For this part use switch.
+
+So your final program will combine:
+
+if
+else
+else if
+switch
+&&
+>=
+===
+=
+*=
+🔥 PRACTICAL PROJECT 4 — Employee Salary
+
+Create:
+
+let salary = 45000;
+let experience = 3;
+
+Rules:
+
+Experience < 1
+→ No bonus
+
+Experience 1–2
+→ 5% bonus
+
+Experience 3–5
+→ 10% bonus
+
+Experience > 5
+→ 20% bonus
+
+Use:
+
+if
+else if
+else
+>=
+<
+
+Calculate the actual bonus amount.
+
+For example:
+
+Salary = ₹45,000
+Experience = 3
+Bonus = 10%
+
+Bonus amount = ₹4,500
+🔥 PRACTICAL PROJECT 5 — Movie Ticket System
+
+Create:
+
+let age = 25;
+let ticketType = "premium";
+let isWeekend = true;
+
+Rules:
+
+Age
+Below 12 → Child
+12–59    → Adult
+60+      → Senior
+Ticket type
+
+Use switch:
+
+regular → ₹150
+premium → ₹250
+vip     → ₹500
+Weekend
+
+If weekend:
+
+₹50 extra
+
+Otherwise:
+
+₹0
+
+Calculate the final ticket price.
+
+This combines:
+
+if
+else if
+else
+switch
+>=
+<
+===
++
+🧠 The most important thing to understand
+
+Don't memorize these as separate syntax rules.
+
+Think of them as decision tools.
+
+if
+
+"Should I do this?"
+
+if (condition) {
+}
+else
+
+"If I don't do that, do this."
+
+if (condition) {
+} else {
+}
+else if
+
+"If the first condition isn't true, check another one."
+
+if (condition1) {
+} else if (condition2) {
+} else {
+}
+switch
+
+"Which exact value do I have?"
+
+switch (value) {
+    case "A":
+        break;
+
+    case "B":
+        break;
+
+    default:
+}
+Your learning order from here
+
+Since you've now covered operators + conditional statements, practice them in this order:
+
+                 OPERATORS
+                     ↓
+          + - * / % ** 
+          == === > < >= <=
+          && || !
+                     ↓
+                   if
+                     ↓
+                if + else
+                     ↓
+             if + else if
+                     ↓
+          if + else if + else
+                     ↓
+             nested conditions
+                     ↓
+                  switch
+                     ↓
+            REAL-WORLD LOGIC
+                     ↓
+       ATM / Login / E-commerce
+       Calculator / Student system
+Your strongest practice challenge
+
+Build one program that contains all four:
+
+if
+else if
+else
+switch
+
+For example, make a Food Ordering System:
+
+1. Check whether user is logged in
+2. Check order amount
+3. Give discount based on amount
+4. Choose payment method using switch
+5. Calculate final bill
+6. Print order status
+
+If you can build that yourself, you have moved from simply knowing JavaScript syntax to actually thinking like a programmer.
