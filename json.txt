@@ -1,0 +1,1103 @@
+
+i don't understand this concept (NaN and finite-number checks) please understand  me this with example
+Let's understand NaN and finite-number checks in JavaScript from the beginning. Don't worry, this is actually an easy concept once you understand the examples.
+
+1. First, what is NaN?
+NaN means Not a Number.
+
+Imagine you have a calculator.
+
+10 + 20 = 30 (valid number)
+
+10 - 5 = 5 (valid number)
+
+"hello" - 5 = ? (invalid mathematical operation)
+
+JavaScript gives you NaN when it cannot produce a valid number from an operation.
+
+Example:
+
+let a = 10 - 5;
+console.log(a); // 5
+
+let b = "hello" - 5;
+console.log(b); // NaN
+
+let c = "apple" * 2;
+console.log(c); // NaN
+
+Remember: NaN means JavaScript tried to perform a numeric operation but couldn't get a valid number.
+
+2. How to check NaN?
+JavaScript provides a method called Number.isNaN().
+
+Example:
+
+let a = 100;
+let b = NaN;
+
+console.log(Number.isNaN(a)); // false
+console.log(Number.isNaN(b)); // true
+
+Why?
+
+100 is a valid number, so false.
+
+NaN is not a valid number, so true.
+
+Let's see another example:
+
+let age = "hello" - 5;
+
+if (Number.isNaN(age)) {
+    console.log("This is not a valid number");
+} else {
+    console.log("Valid number");
+}
+
+Output:
+
+This is not a valid number
+Here, JavaScript calculates "hello" - 5, gets NaN, and the condition detects it.
+
+3. What is a finite number?
+A finite number means a normal, limited number.
+
+Examples:
+
+console.log(Number.isFinite(100));    // true
+console.log(Number.isFinite(25.5));   // true
+console.log(Number.isFinite(-50));    // true
+console.log(Number.isFinite(0));      // true
+
+All these are finite numbers.
+
+But JavaScript also has special values:
+
+console.log(Number.isFinite(Infinity));  // false
+console.log(Number.isFinite(-Infinity)); // false
+console.log(Number.isFinite(NaN));       // false
+
+Why?
+
+Infinity = unlimited positive value.
+
+-Infinity = unlimited negative value.
+
+NaN = not a valid number.
+
+These are not finite numbers.
+
+4. Real-world example: Checking a student's marks
+Imagine a student enters marks in your application.
+
+You want to check whether the entered marks are valid.
+
+let marks = 85;
+
+if (Number.isFinite(marks)) {
+    console.log("Valid marks");
+} else {
+    console.log("Invalid marks");
+}
+
+Output:
+
+Valid marks
+Now try:
+
+let marks = NaN;
+
+if (Number.isFinite(marks)) {
+    console.log("Valid marks");
+} else {
+    console.log("Invalid marks");
+}
+
+Output:
+
+Invalid marks
+5. Difference between Number.isNaN() and Number.isFinite()
+This is the most important part.
+
+Method
+
+What it checks
+
+Number.isNaN()
+
+Is the value NaN?
+
+Number.isFinite()
+
+Is the value a finite number?
+
+See this comparison:
+
+Value
+
+isNaN()
+
+isFinite()
+
+100
+
+false
+
+true
+
+0
+
+false
+
+true
+
+NaN
+
+true
+
+false
+
+Infinity
+
+false
+
+false
+
+-Infinity
+
+false
+
+false
+
+One important point: Number.isFinite() and Number.isNaN() do not automatically convert strings into numbers.
+
+console.log(Number.isFinite("100")); // false
+console.log(Number.isNaN("hello"));  // false
+
+Because "100" and "hello" are strings, not actual numbers.
+
+6. Practical example: User enters a number
+Suppose you are building a calculator.
+
+let input = "abc";
+
+let number = Number(input);
+
+if (Number.isFinite(number)) {
+    console.log("You entered a valid number");
+} else {
+    console.log("Please enter a valid number");
+}
+
+Output:
+
+Please enter a valid number
+Here is what happens:
+
+User enters "abc".
+
+Number("abc") tries to convert it into a number.
+
+Conversion produces NaN.
+
+Number.isFinite() checks the result.
+
+It returns false.
+
+7. Test yourself
+Let's see whether you understood. Try answering these 5 questions.
+
+JavaScript mini quiz
+
+0/5 answered
+1. What does NaN mean?
+
+
+Negative Number
+
+Not a Number
+
+New Number
+
+No Answer
+2. What is the output of Number.isNaN(NaN)?
+
+
+true
+
+false
+
+undefined
+
+0
+3. What is Number.isFinite(100)?
+
+
+false
+
+true
+
+NaN
+
+undefined
+4. What is Number.isFinite(Infinity)?
+
+
+true
+
+false
+
+100
+
+NaN
+5. What is Number("hello")?
+
+
+0
+
+100
+
+NaN
+
+true
+My advice: Remember these two simple points:
+
+Number.isNaN() → Checks whether something is NaN.
+
+Number.isFinite() → Checks whether something is a normal, finite number.
+
+Once you understand these, you can use them in calculators, forms, validation and JavaScript applications.
+
+74	6. Strings, numbers and built-ins	Date object	Not Started
+75	6. Strings, numbers and built-ins	Regular expressions	Not Started
+76	6. Strings, numbers and built-ins	Map and Set	Not Started
+77	6. Strings, numbers and built-ins	WeakMap and WeakSet	Not Started
+78	6. Strings, numbers and built-ins	JSON.stringify and JSON.parse	Not Started
+. explain and understand   me this concept with  example
+
+Let's learn these 5 JavaScript topics (Day 74–78) one by one, starting from the basics.
+
+I'll explain in simple English with:
+
+What it means.
+
+Why we use it.
+
+Syntax and examples.
+
+Real-world use cases.
+
+Small practice questions.
+
+These topics are important when building real applications using JavaScript, React, Node.js and APIs.
+
+Day 74 – Date object
+1. What is a Date object?
+The Date object is used to work with dates and time in JavaScript.
+
+For example:
+
+Get today's date.
+
+Get the current time.
+
+Find the year, month and day.
+
+Calculate the difference between two dates.
+
+Display a user's registration date.
+
+2. Creating a Date
+let today = new Date();
+
+console.log(today);
+
+Output (example):
+
+2026-11-12T16:30:00.000Z
+new Date() automatically gets the current date and time from your system.
+
+3. Get individual date values
+JavaScript provides different methods.
+
+let today = new Date();
+
+console.log(today.getFullYear());
+console.log(today.getMonth());
+console.log(today.getDate());
+console.log(today.getDay());
+console.log(today.getHours());
+console.log(today.getMinutes());
+console.log(today.getSeconds());
+
+Understand these methods:
+
+Method
+
+Meaning
+
+getFullYear()
+
+Gets the year
+
+getMonth()
+
+Gets the month (0–11)
+
+getDate()
+
+Gets the day of the month (1–31)
+
+getDay()
+
+Gets the weekday (0–6)
+
+getHours()
+
+Gets the hour
+
+getMinutes()
+
+Gets the minutes
+
+getSeconds()
+
+Gets the seconds
+
+Important getMonth() starts from 0.
+
+January = 0
+
+February = 1
+
+March = 2
+
+December = 11
+
+Example:
+
+let date = new Date();
+
+let month = date.getMonth() + 1;
+
+console.log(month);
+
+We add +1 because JavaScript counts months starting from zero.
+
+4. Creating your own date
+You can also create a specific date.
+
+let birthday = new Date("2004-05-28");
+
+console.log(birthday);
+
+You can get the year:
+
+console.log(birthday.getFullYear()); // 2004
+
+5. Changing dates
+JavaScript also allows you to change date values.
+
+let date = new Date();
+
+date.setFullYear(2030);
+
+console.log(date);
+
+Other methods:
+
+setMonth()
+
+setDate()
+
+setHours()
+
+setMinutes()
+
+6. Real-world example: Calculate age
+let birthYear = 2004;
+
+let currentYear = new Date().getFullYear();
+
+let age = currentYear - birthYear;
+
+console.log("Your age is " + age);
+
+This is a basic year-based calculation. For an exact age, you must also compare the birth month and day.
+
+Day 75 – Regular Expressions (RegEx)
+1. What is a Regular Expression?
+A Regular Expression is a pattern used to search, match and validate text.
+
+Imagine you are creating a registration form.
+
+You want:
+
+Email to contain a valid-looking email pattern.
+
+Mobile number to contain exactly 10 digits.
+
+Password to contain at least 8 characters.
+
+Instead of checking every character manually, you can use Regular Expressions.
+
+2. Basic syntax
+let pattern = /hello/;
+
+let text = "hello world";
+
+console.log(pattern.test(text));
+
+Output:
+
+true
+Why?
+
+Because the word hello exists inside "hello world".
+
+.test() checks whether the text matches the pattern.
+
+3. Important RegEx symbols
+Symbol
+
+Meaning
+
+^
+
+Starts with
+
+$
+
+Ends with
+
+.
+
+Any character except line terminators
+
+\d
+
+Any digit (0–9)
+
+\w
+
+Word character
+
+\s
+
+Whitespace
+
++
+
+One or more
+
+*
+
+Zero or more
+
+{n}
+
+Exactly n times
+
+[abc]
+
+a, b or c
+
+?
+
+Zero or one
+
+4. Example: Check mobile number
+Suppose you want to check whether a mobile number has exactly 10 digits.
+
+let pattern = /^\d{10}$/;
+
+let mobile = "9876543210";
+
+console.log(pattern.test(mobile));
+
+Output:
+
+true
+Understand the pattern:
+
+^ = Start of text.
+
+\d = A digit.
+
+{10} = Exactly 10 digits.
+
+$ = End of text.
+
+Try an invalid number:
+
+let mobile = "98765";
+
+console.log(pattern.test(mobile)); // false
+
+It returns false because there are only 5 digits.
+
+5. Example: Check password length
+let password = "hello123";
+
+let pattern = /^.{8,}$/;
+
+console.log(pattern.test(password));
+
+Output:
+
+true
+Here:
+
+. = Any character.
+
+{8,} = At least 8 characters.
+
+^ and $ = Check the entire string.
+
+Note: This checks only password length, not password strength.
+
+6. Example: Find numbers inside text
+let text = "I have 25 books and 10 pens";
+
+let result = text.match(/\d+/g);
+
+console.log(result);
+
+Output:
+
+["25", "10"]
+
+Here:
+
+\d = Digit.
+
++ = One or more digits.
+
+g = Find all matches, not just the first.
+
+Day 76 – Map and Set
+These are two useful JavaScript data structures.
+
+1. What is Map?
+A Map stores data in key-value pairs, just like an object.
+
+For example, imagine a student record:
+
+let student = {
+    name: "Ithesh",
+    age: 22,
+    course: "CSE"
+};
+
+You can store similar information using Map.
+
+let student = new Map();
+
+student.set("name", "Ithesh");
+student.set("age", 22);
+student.set("course", "CSE");
+
+console.log(student);
+
+Here, set() adds key-value pairs.
+
+2. Important Map methods
+Method
+
+Meaning
+
+set(key, value)
+
+Add or update data
+
+get(key)
+
+Get a value
+
+has(key)
+
+Check if key exists
+
+delete(key)
+
+Delete a key
+
+clear()
+
+Remove everything
+
+size
+
+Number of entries
+
+Example:
+
+let student = new Map();
+
+student.set("name", "Ithesh");
+student.set("age", 22);
+
+console.log(student.get("name")); // Ithesh
+
+console.log(student.has("age")); // true
+
+console.log(student.size); // 2
+
+student.delete("age");
+
+console.log(student.size); // 1
+
+3. Why use Map instead of Object?
+One important difference is that Map allows different types of keys.
+
+let data = new Map();
+
+data.set("name", "Ithesh");
+data.set(101, "Student ID");
+data.set(true, "Active");
+
+console.log(data.get(101)); // Student ID
+console.log(data.get(true)); // Active
+
+An object also supports different types of property keys, but it converts them into strings or symbols. Map preserves key types.
+
+4. What is Set?
+A Set stores unique values only.
+
+Imagine you have this list:
+
+let numbers = [10, 20, 10, 30, 20, 40];
+
+There are duplicate numbers.
+
+If you want only unique numbers, use Set.
+
+let uniqueNumbers = new Set(numbers);
+
+console.log(uniqueNumbers);
+
+Output:
+
+Set(4) {10, 20, 30, 40}
+Duplicates are automatically removed.
+
+5. Important Set methods
+Method
+
+Meaning
+
+add(value)
+
+Add a value
+
+has(value)
+
+Check whether value exists
+
+delete(value)
+
+Delete a value
+
+clear()
+
+Remove everything
+
+size
+
+Number of unique values
+
+Example:
+
+let fruits = new Set();
+
+fruits.add("Apple");
+fruits.add("Mango");
+fruits.add("Apple");
+
+console.log(fruits.size); // 2
+
+console.log(fruits.has("Mango")); // true
+
+fruits.delete("Apple");
+
+console.log(fruits);
+
+6. Real-world example: Remove duplicate names
+let users = [
+    "Rahul",
+    "Ithesh",
+    "Rahul",
+    "Kiran",
+    "Ithesh"
+];
+
+let uniqueUsers = [...new Set(users)];
+
+console.log(uniqueUsers);
+
+Output:
+
+["Rahul", "Ithesh", "Kiran"]
+
+The spread operator converts the Set back into an array.
+
+Remember the difference
+
+Map
+
+Stores key-value pairs.
+
+Set
+
+Stores unique values only.
+
+Day 77 – WeakMap and WeakSet
+Don't worry about the word "Weak". Understand the basic difference first.
+
+1. What is WeakMap?
+WeakMap is similar to Map, but it has one important restriction:
+
+WeakMap keys must be objects or non-registered symbols.
+
+For beginner-level learning, remember that object keys are the main use case.
+
+Example:
+
+let weakMap = new WeakMap();
+
+let user = {
+    name: "Ithesh"
+};
+
+weakMap.set(user, "Developer");
+
+console.log(weakMap.get(user));
+
+Output:
+
+Developer
+Here:
+
+user is an object.
+
+We use that object as a key.
+
+"Developer" is its value.
+
+But this is not allowed:
+
+let weakMap = new WeakMap();
+
+weakMap.set("name", "Ithesh");
+
+It throws a TypeError because "name" is a string, not an object key.
+
+2. What is WeakSet?
+WeakSet is similar to Set, but it stores only objects (or non-registered symbols).
+
+Example:
+
+let weakSet = new WeakSet();
+
+let user1 = { name: "Ithesh" };
+let user2 = { name: "Rahul" };
+
+weakSet.add(user1);
+weakSet.add(user2);
+
+console.log(weakSet.has(user1)); // true
+
+But this is not allowed:
+
+let weakSet = new WeakSet();
+
+weakSet.add("Ithesh");
+
+It throws a TypeError because a string is not an object.
+
+3. Why do we use WeakMap and WeakSet?
+One important reason is garbage collection.
+
+Imagine:
+
+You create a user object.
+
+You store that object in a WeakMap.
+
+Your application no longer uses that object anywhere else.
+
+JavaScript's garbage collector can remove the object and its WeakMap entry.
+
+This helps avoid keeping certain objects alive unnecessarily.
+
+You don't manually remove these entries when the object becomes unreachable.
+
+4. Map vs WeakMap and Set vs WeakSet
+Feature
+
+Map
+
+WeakMap
+
+Keys
+
+Any type
+
+Objects / non-registered symbols
+
+Iterable
+
+Yes
+
+No
+
+size
+
+Yes
+
+No
+
+clear()
+
+Yes
+
+No
+
+Feature
+
+Set
+
+WeakSet
+
+Values
+
+Any type
+
+Objects / non-registered symbols
+
+Iterable
+
+Yes
+
+No
+
+size
+
+Yes
+
+No
+
+clear()
+
+Yes
+
+No
+
+Easy memory trick:
+
+Map = Key-value storage.
+
+WeakMap = Object-key storage.
+
+Set = Unique values.
+
+WeakSet = Object-only unique values.
+
+Day 78 – JSON.stringify() and JSON.parse()
+This is especially important when working with APIs, React and Node.js.
+
+1. First, what is JSON?
+JSON stands for JavaScript Object Notation.
+
+It is a text format used to exchange data between applications.
+
+For example, your frontend sends user information to a backend.
+
+The data might look like this:
+
+{
+  "name": "Ithesh",
+  "age": 22,
+  "course": "CSE"
+}
+
+This is JSON data.
+
+2. What is JSON.stringify()?
+JSON.stringify() converts a JavaScript value, such as an object, into a JSON string.
+
+Example:
+
+let user = {
+    name: "Ithesh",
+    age: 22,
+    course: "CSE"
+};
+
+let result = JSON.stringify(user);
+
+console.log(result);
+console.log(typeof result);
+
+Output:
+
+{"name":"Ithesh","age":22,"course":"CSE"}
+
+string
+Understand:
+
+Before conversion:
+
+let user = {
+    name: "Ithesh",
+    age: 22
+};
+
+This is a JavaScript object.
+
+After conversion:
+
+let result = JSON.stringify(user);
+
+Now it is a string.
+
+Remember: stringify = Object to JSON string.
+
+3. What is JSON.parse()?
+JSON.parse() does the opposite.
+
+It converts a valid JSON string into a JavaScript value.
+
+Example:
+
+let jsonData = '{"name":"Ithesh","age":22}';
+
+let user = JSON.parse(jsonData);
+
+console.log(user);
+console.log(user.name);
+console.log(typeof user);
+
+Output:
+
+{ name: "Ithesh", age: 22 }
+
+Ithesh
+
+object
+Remember: parse = JSON string to JavaScript value.
+
+4. Real-world example: Saving data in the browser
+Imagine you want to save a user's details in the browser.
+
+let user = {
+    name: "Ithesh",
+    age: 22
+};
+
+// Convert object into string
+let data = JSON.stringify(user);
+
+// Save in browser
+localStorage.setItem("user", data);
+
+Later, you want to retrieve that data.
+
+// Get saved string
+let savedData = localStorage.getItem("user");
+
+// Convert string back into object
+let userData = JSON.parse(savedData);
+
+console.log(userData.name);
+
+Output:
+
+Ithesh
+Why do we use JSON.stringify()?
+
+Because browser Local Storage stores values as strings.
+
+Why do we use JSON.parse()?
+
+Because we want to convert the stored string back into a JavaScript object.
+
+5. Difference between stringify and parse
+JSON.stringify()
+JavaScript Object
+
+JSON String
+
+JSON.parse()
+JSON String
+
+JavaScript Object
+
+Final revision – Day 74 to Day 78
+Day
+
+Topic
+
+Remember this
+
+74
+
+Date
+
+Work with dates and time
+
+75
+
+RegEx
+
+Search and validate text
+
+76
+
+Map
+
+Key-value pairs
+
+76
+
+Set
+
+Unique values
+
+77
+
+WeakMap
+
+Object-based keys
+
+77
+
+WeakSet
+
+Object-only values
+
+78
+
+JSON.stringify
+
+Object to string
+
+78
+
+JSON.parse
+
+String to object
+
+Next step: Would you like a fresh JavaScript practice exercise tomorrow covering these topics, with coding questions and answers?
+
+
+
+Daily JavaScript practice
+
+Tap to set up
+
+
+
+
+
